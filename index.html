@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — BUT Réseaux & Télécommunications</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Portfolio <span>R&T</span></div>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="active">Accueil</a>
+      <a href="presentation.html">Présentation</a>
+      <a href="saes.html">SAÉ</a>
+      <a href="bilans.html">Bilans</a>
+    </div>
+    <div class="burger" id="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="page active" id="page-home">
+    <div class="container">
+      <div class="hero">
+        <div class="hero-text">
+          <div class="label">Portfolio professionnel</div>
+          <h1>Félix<br/>Allanic-Jouvencel</h1>
+          <p class="subtitle">Étudiant en BUT Réseaux & Télécommunications — BUT 1ʳᵉ année — IUT Grand Ouest Normandie</p>
+          <div class="hero-tags">
+            <span class="tag">Réseaux & Télécoms</span>
+            <span class="tag">Administration systèmes</span>
+            <span class="tag">Développement</span>
+            <span class="tag">BUT 1ʳᵉ année</span>
+          </div>
+          <div class="hero-cta">
+            <a href="saes.html" class="btn btn-primary">Voir mes SAÉ →</a>
+            <a href="presentation.html" class="btn btn-outline">Mon profil</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="photo-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <p>Votre photo professionnelle</p>
+          </div>
+          <div class="photo-frame"></div>
+        </div>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Compétences BUT</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">8</div>
+          <div class="stat-label">SAÉ documentées</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">S1 & S2</div>
+          <div class="stat-label">Semestres couverts</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="label">À propos du portfolio</div>
+        <h2 style="margin-bottom:1.2rem">Un outil de progression,<br/>pas seulement un recueil</h2>
+        <p style="margin-bottom:1rem">Ce portfolio rend compte de ma première année en BUT Réseaux & Télécommunications à travers l'analyse de mes Situations d'Apprentissage et d'Évaluation (SAÉ). Il vise à montrer comment j'ai développé mes compétences fondamentales, quelles difficultés j'ai rencontrées, et comment j'ai progressé.</p>
+        <p>Chaque SAÉ est analysée de manière réflexive : je ne décris pas uniquement ce que j'ai fait, mais ce que j'en ai <em>appris</em>, comment cela m'a permis d'acquérir des Apprentissages Critiques, et dans quelle mesure je pourrais les réinvestir dans d'autres contextes professionnels.</p>
+        <div class="divider"></div>
+        <div class="competences-grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">
+          <a href="bilans.html" class="comp-card">
+            <div class="comp-card-label">RT1</div>
+            <div class="comp-card-title">Administrer les réseaux et l'Internet</div>
+          </a>
+          <a href="bilans.html" class="comp-card">
+            <div class="comp-card-label">RT2</div>
+            <div class="comp-card-title">Connecter les entreprises et les usagers</div>
+          </a>
+          <a href="bilans.html" class="comp-card">
+            <div class="comp-card-label">RT3</div>
+            <div class="comp-card-title">Créer des outils et des applications pour les R&T</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <footer>
+        <div class="foot-left">BUT R&T — IUT Grand Ouest Normandie</div>
+        <div class="foot-right">
+          <span>2024 – 2025</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
