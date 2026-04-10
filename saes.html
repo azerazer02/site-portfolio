@@ -26,10 +26,10 @@
   <div class="page active" id="page-saes">
     <div class="container">
       
-      <div class="section" id="liste-sae">
+      <div class="section" id="liste-sae" style="padding-bottom: 2rem;">
         <div class="label">Situations d'Apprentissage et d'Évaluation</div>
         <h2 style="margin-bottom:0.6rem">Mes SAÉ de 1ʳᵉ année</h2>
-        <p style="color:var(--ink-light); margin-bottom:2.5rem">Cliquez sur une SAÉ pour lire son analyse détaillée plus bas sur cette page.</p>
+        <p style="color:var(--ink-light); margin-bottom:2.5rem">Cliquez sur une carte pour lire son analyse détaillée plus bas sur la page.</p>
 
         <h3 style="margin-bottom:1rem; margin-top:2rem">Semestre 1</h3>
         <div class="sae-grid" style="margin-bottom:2.5rem">
@@ -96,9 +96,7 @@
         </div>
       </div>
 
-      <div class="divider" id="sae-divider" style="display:none; margin: 1rem 0 3rem 0;"></div>
-
-      <div id="sae-detail" style="display:none; padding-bottom: 5rem;">
+      <div id="sae-detail" style="display:none; padding-top: 3rem; padding-bottom: 5rem; border-top: 2px dashed var(--border);">
         
         <div class="sae-header" style="padding-top:0;">
           <div class="sae-header-code" id="sae-code">SAÉ X.XX</div>
@@ -116,14 +114,17 @@
               <div class="sae-section-title">Contexte & Objectifs</div>
               <div id="sae-contexte"><p>[ Présentez le contexte général, l'environnement professionnel simulé, la mission confiée... ]</p></div>
             </div>
+            
             <div class="sae-section">
               <div class="sae-section-title">Apprentissages Critiques mobilisés</div>
               <div class="ac-list" id="sae-ac-list"></div>
             </div>
+
             <div class="sae-section">
               <div class="sae-section-title">Tâches réalisées</div>
               <div id="sae-taches"><p>[ Décrivez votre contribution personnelle, les étapes principales, les outils utilisés... ]</p></div>
             </div>
+
             <div class="sae-section">
               <div class="sae-section-title">Preuves & Traces</div>
               <div class="trace-list" id="sae-traces">
@@ -136,6 +137,7 @@
                 </div>
               </div>
             </div>
+
             <div class="sae-section">
               <div class="sae-section-title">Autoévaluation</div>
               <div class="autoeval-box">
@@ -156,9 +158,10 @@
               </div>
             </div>
             
-            <div class="back-btn" onclick="hideSAE()" style="margin-top: 2rem;">↑ Fermer l'analyse et remonter</div>
+            <div class="btn btn-outline" onclick="hideSAE()" style="margin-top: 2rem;">↑ Fermer l'analyse et remonter</div>
 
           </div>
+          
           <div class="sae-sidebar">
             <div class="sidebar-card">
               <div class="sidebar-card-title">UE correspondante</div>
@@ -171,6 +174,7 @@
               <div class="sidebar-item">Mode : <span id="sd-mode">–</span></div>
             </div>
           </div>
+          
         </div>
       </div>
       
