@@ -3,7 +3,7 @@ function toggleMenu() {
   document.getElementById('navLinks').classList.toggle('open');
 }
 
-// ─── SAÉ DATA (Uniquement S1 et S2) ──────────────────────────────
+// ─── SAÉ DATA (S1 et S2 uniquement) ──────────────────────────────
 const saeData = {
   sae101: {
     code: 'SAÉ 1.01',
@@ -14,7 +14,7 @@ const saeData = {
       { code: 'AC11.04', text: "Maîtriser les rôles et les principes fondamentaux des systèmes d'exploitation" },
       { code: 'AC11.05', text: "Identifier les dysfonctionnements du réseau local et savoir les signaler" },
     ],
-    comps: ['RT1 — Administrer les réseaux et l'Internet'],
+    comps: ['UE1.1 — Administrer les réseaux et l'Internet'],
   },
   sae102: {
     code: 'SAÉ 1.02',
@@ -25,7 +25,7 @@ const saeData = {
       { code: 'AC11.03', text: "Configurer les fonctions de base du réseau local" },
       { code: 'AC11.06', text: "Installer un poste client, expliquer la procédure mise en place" },
     ],
-    comps: ['RT1 — Administrer les réseaux et l'Internet'],
+    comps: ['UE1.1 — Administrer les réseaux et l'Internet'],
   },
   sae103: {
     code: 'SAÉ 1.03',
@@ -36,7 +36,7 @@ const saeData = {
       { code: 'AC12.03', text: "Déployer des supports de transmission" },
       { code: 'AC12.05', text: "Communiquer avec un tiers et adapter son discours" },
     ],
-    comps: ['RT2 — Connecter les entreprises et les usagers'],
+    comps: ['UE1.2 — Connecter les entreprises et les usagers'],
   },
   sae104: {
     code: 'SAÉ 1.04',
@@ -46,7 +46,7 @@ const saeData = {
       { code: 'AC13.01', text: "Utiliser un système informatique et ses outils" },
       { code: 'AC13.04', text: "Connaître l'architecture et les technologies d'un site Web" },
     ],
-    comps: ['RT3 — Créer des outils et des applications informatiques pour les R&T'],
+    comps: ['UE1.3 — Créer des outils et des applications informatiques pour les R&T'],
   },
   sae105: {
     code: 'SAÉ 1.05',
@@ -58,7 +58,7 @@ const saeData = {
       { code: 'AC13.05', text: "Choisir les mécanismes de gestion de données adaptés au développement de l'outil" },
       { code: 'AC13.06', text: "S'intégrer dans un environnement propice au développement et au travail collaboratif" },
     ],
-    comps: ['RT3 — Créer des outils et des applications informatiques pour les R&T'],
+    comps: ['UE1.3 — Créer des outils et des applications informatiques pour les R&T'],
   },
   sae201: {
     code: 'SAÉ 2.01',
@@ -71,7 +71,7 @@ const saeData = {
       { code: 'AC11.05', text: "Identifier les dysfonctionnements du réseau local et savoir les signaler" },
       { code: 'AC11.06', text: "Installer un poste client, expliquer la procédure mise en place" },
     ],
-    comps: ['RT1 — Administrer les réseaux et l'Internet'],
+    comps: ['UE1.1 — Administrer les réseaux et l'Internet'],
   },
   sae202: {
     code: 'SAÉ 2.02',
@@ -82,7 +82,7 @@ const saeData = {
       { code: 'AC12.02', text: "Caractériser des systèmes de transmission élémentaires" },
       { code: 'AC12.05', text: "Communiquer avec un tiers et adapter son discours" },
     ],
-    comps: ['RT2 — Connecter les entreprises et les usagers'],
+    comps: ['UE1.2 — Connecter les entreprises et les usagers'],
   },
   sae203: {
     code: 'SAÉ 2.03',
@@ -96,16 +96,16 @@ const saeData = {
       { code: 'AC13.05', text: "Choisir les mécanismes de gestion de données adaptés au développement de l'outil" },
       { code: 'AC13.06', text: "S'intégrer dans un environnement propice au développement et au travail collaboratif" },
     ],
-    comps: ['RT3 — Créer des outils et des applications pour les R&T'],
+    comps: ['UE1.3 — Créer des outils et des applications pour les R&T'],
   }
 };
 
-// ─── SAÉ DETAIL (AVEC DÉFILEMENT FLUIDE) ──────────────────────────────────
+// ─── AFFICHAGE DÉTAIL SAÉ AVEC DÉFILEMENT ─────────────────────────────────
 function showSAE(id) {
   const d = saeData[id];
   if (!d) return;
 
-  // Remplissage des données
+  // 1. Remplissage des données dans la zone de détail
   document.getElementById('sae-code').textContent = d.code;
   document.getElementById('sae-title').textContent = d.title;
   document.getElementById('sae-sem').textContent = d.sem;
@@ -115,7 +115,6 @@ function showSAE(id) {
   document.getElementById('sd-duree').textContent = d.duree;
   document.getElementById('sd-mode').textContent = d.mode;
 
-  // Liste des AC
   const acList = document.getElementById('sae-ac-list');
   acList.innerHTML = d.acs.map(ac => `
     <div class="ac-item">
@@ -124,35 +123,27 @@ function showSAE(id) {
     </div>
   `).join('');
 
-  // Sidebar Compétences / UE
   document.getElementById('sae-comp-list').innerHTML = d.comps.map(c =>
     `<div class="sidebar-item">${c}</div>`
   ).join('');
 
-  // 1. On affiche la section détaillée (sans cacher la liste)
+  // 2. On rend la zone de détail visible
   const detailSection = document.getElementById('sae-detail');
-  const divider = document.getElementById('sae-divider');
-  
   detailSection.style.display = 'block';
-  divider.style.display = 'block';
 
-  // 2. On fait défiler la page doucement vers le détail
-  // Le setTimeout permet au navigateur de calculer la hauteur avant de scroller
+  // 3. On fait défiler la page doucement vers cette zone
   setTimeout(() => {
     detailSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 50);
 }
 
+// ─── MASQUER LE DÉTAIL ET REMONTER ───────────────────────────────────────
 function hideSAE() {
-  const detailSection = document.getElementById('sae-detail');
-  const divider = document.getElementById('sae-divider');
-
-  // 1. On remonte en haut de la page doucement
+  // 1. On remonte en haut de la page
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  // 2. On cache la section après avoir laissé le temps au scroll de se faire (environ 400ms)
+  // 2. On attend une demi-seconde (le temps du défilement) puis on cache la zone
   setTimeout(() => {
-    detailSection.style.display = 'none';
-    divider.style.display = 'none';
-  }, 400);
+    document.getElementById('sae-detail').style.display = 'none';
+  }, 500);
 }
