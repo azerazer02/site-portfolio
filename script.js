@@ -100,11 +100,12 @@ const saeData = {
   }
 };
 
-// ─── SAÉ DETAIL ───────────────────────────────────────────
+// ─── SAÉ DETAIL (AVEC DÉFILEMENT FLUIDE) ──────────────────────────────────
 function showSAE(id) {
   const d = saeData[id];
   if (!d) return;
 
+  // Remplissage des données
   document.getElementById('sae-code').textContent = d.code;
   document.getElementById('sae-title').textContent = d.title;
   document.getElementById('sae-sem').textContent = d.sem;
@@ -114,7 +115,7 @@ function showSAE(id) {
   document.getElementById('sd-duree').textContent = d.duree;
   document.getElementById('sd-mode').textContent = d.mode;
 
-  // AC list
+  // Liste des AC
   const acList = document.getElementById('sae-ac-list');
   acList.innerHTML = d.acs.map(ac => `
     <div class="ac-item">
@@ -123,19 +124,35 @@ function showSAE(id) {
     </div>
   `).join('');
 
-  // Compétences sidebar
+  // Sidebar Compétences / UE
   document.getElementById('sae-comp-list').innerHTML = d.comps.map(c =>
     `<div class="sidebar-item">${c}</div>`
   ).join('');
 
-  // Masquer la liste, afficher le détail
-  document.getElementById('page-saes').style.display = 'none';
-  document.getElementById('sae-detail').style.display = 'block';
-  window.scrollTo(0, 0);
+  // 1. On affiche la section détaillée (sans cacher la liste)
+  const detailSection = document.getElementById('sae-detail');
+  const divider = document.getElementById('sae-divider');
+  
+  detailSection.style.display = 'block';
+  divider.style.display = 'block';
+
+  // 2. On fait défiler la page doucement vers le détail
+  // Le setTimeout permet au navigateur de calculer la hauteur avant de scroller
+  setTimeout(() => {
+    detailSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 50);
 }
 
 function hideSAE() {
-  document.getElementById('sae-detail').style.display = 'none';
-  document.getElementById('page-saes').style.display = 'block';
-  window.scrollTo(0, 0);
+  const detailSection = document.getElementById('sae-detail');
+  const divider = document.getElementById('sae-divider');
+
+  // 1. On remonte en haut de la page doucement
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // 2. On cache la section après avoir laissé le temps au scroll de se faire (environ 400ms)
+  setTimeout(() => {
+    detailSection.style.display = 'none';
+    divider.style.display = 'none';
+  }, 400);
 }
