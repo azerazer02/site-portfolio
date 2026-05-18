@@ -10,6 +10,12 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Karla:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Quelques styles pour s'assurer que les listes rendent bien dans ton conteneur */
+    .sae-content ul { margin-left: 1.5rem; margin-bottom: 1rem; color: #555; }
+    .sae-content li { margin-bottom: 0.5rem; line-height: 1.5; }
+    .ue-tag { display: inline-block; background: #005b9f; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.5rem; }
+  </style>
 </head>
 
 <body>
@@ -30,8 +36,7 @@
   <div class="page active" id="page-sae-detail">
     <div class="container" style="padding-top: 2rem; padding-bottom: 5rem;">
 
-      <a href="saes.html" class="back-btn" style="display:inline-flex; margin-bottom: 1rem; padding-top: 0;">← Retour à
-        la liste des SAÉ</a>
+      <a href="saes.html" class="back-btn" style="display:inline-flex; margin-bottom: 1rem; padding-top: 0; color: #005b9f; text-decoration: none; font-weight: bold;">← Retour à la liste des SAÉ</a>
 
       <div class="sae-header" style="padding-top: 1rem;">
         <div class="sae-header-code" id="sae-code">SAÉ X.XX</div>
@@ -48,52 +53,38 @@
           <div class="sae-section">
             <div class="sae-section-title">Contexte & Objectifs</div>
             <div id="sae-contexte">
-              <p>[ Présentez le contexte général, l'environnement professionnel simulé, la mission confiée... ]</p>
-            </div>
+              </div>
           </div>
 
           <div class="sae-section">
             <div class="sae-section-title">Apprentissages Critiques mobilisés</div>
-            <div class="ac-list" id="sae-ac-list"></div>
+            <div class="ac-list" id="sae-ac-list">
+              </div>
           </div>
 
           <div class="sae-section">
             <div class="sae-section-title">Tâches réalisées</div>
             <div id="sae-taches">
-              <p>[ Décrivez votre contribution personnelle, les étapes principales, les outils utilisés... ]</p>
-            </div>
+              </div>
           </div>
 
           <div class="sae-section">
             <div class="sae-section-title">Preuves & Traces</div>
             <div class="trace-list" id="sae-traces">
-              <div class="trace-item">
-                <div class="trace-icon">📄</div>
-                <div class="trace-info">
-                  <div class="trace-name">[ Trace 1 — ex : rapport de configuration ]</div>
-                  <div class="trace-desc">Justification de la trace...</div>
-                </div>
               </div>
-            </div>
           </div>
 
           <div class="sae-section">
             <div class="sae-section-title">Autoévaluation</div>
-            <div class="autoeval-box">
-              <div class="niveau">
-                <span style="font-size:0.78rem; color:var(--ink-light);">Niveau estimé :</span>
-                <div class="niveau-dots" id="sae-niveau">
-                  <div class="dot filled"></div>
-                  <div class="dot filled"></div>
-                  <div class="dot filled"></div>
-                  <div class="dot filled"></div>
+            <div class="autoeval-box" style="background: #f9f9f9; border: 1px dashed #ccc; padding: 1.5rem; border-radius: 8px;">
+              <div class="niveau" style="margin-bottom: 1rem;">
+                <span style="font-size:0.78rem; color:#888; text-transform: uppercase;">Niveau d'acquisition estimé :</span>
+                <div class="niveau-dots" id="sae-niveau" style="display: inline-flex; gap: 5px; margin-left: 10px;">
+                  </div>
+                <span class="niveau-label" id="sae-niveau-label" style="margin-left: 10px; font-weight: 600;">Confirmé</span>
+              </div>
+              <div id="sae-autoeval" style="font-style: italic; color: #555; line-height: 1.6;">
                 </div>
-                <span class="niveau-label">Confirmé</span>
-              </div>
-              <div id="sae-autoeval">
-                <p>[ Difficultés rencontrées et solutions apportées... ]</p>
-                <p>[ Ce que cette SAÉ vous a appris pour votre future carrière... ]</p>
-              </div>
             </div>
           </div>
 
@@ -102,7 +93,8 @@
         <div class="sae-sidebar">
           <div class="sidebar-card">
             <div class="sidebar-card-title">UE correspondante</div>
-            <div id="sae-comp-list"></div>
+            <div id="sae-comp-list">
+              </div>
           </div>
           <div class="sidebar-card">
             <div class="sidebar-card-title">Informations clés</div>
@@ -118,9 +110,192 @@
 
   <script src="script.js"></script>
   <script>
-    // Appelle la fonction de chargement dès que la page est prête
-    document.addEventListener('DOMContentLoaded', loadSAEDetail);
+    // BASE DE DONNÉES DES SAÉS (Extrait des documents officiels, slides et matrices)
+    const saeData = {
+      "sae101": {
+        code: "SAÉ 1.01",
+        title: "Se sensibiliser à l'hygiène informatique",
+        sem: "Semestre 1",
+        duree: "16h (1h CM, 12h Projet, 3h TP)",
+        mode: "Autonomie (MOOC) et Groupe",
+        ue: ["UE1.1 — Administrer les réseaux et l'Internet"],
+        contexte: "<p>Le professionnel R&T est l'un des premiers interlocuteurs des nouveaux collaborateurs. Cette SAÉ vise à faire prendre conscience des menaces numériques communes (cybersécurité) et à savoir mettre en place les remédiations adéquates par une approche éducative et technologique. L'objectif est d'apprendre à appliquer une bonne hygiène numérique et d'être capable de sensibiliser des utilisateurs non spécialistes.</p>",
+        ac: [
+          "AC11.02 : Comprendre l'architecture et les fondements des systèmes numériques et de l'Internet.",
+          "AC11.04 : Maîtriser les rôles et les principes fondamentaux des systèmes d'exploitation.",
+          "AC11.05 : Identifier les dysfonctionnements du réseau local et savoir les signaler."
+        ],
+        taches: "<ul><li>Auto-formation individuelle au MOOC de l'ANSSI (SecNumacadémie).</li><li>Travail de recherche et d'expérimentation en groupe sur des thématiques précises (Gestion des mots de passe, accès SSH, découverte de machines sur un réseau).</li><li>Participation à un TP de découverte sous la forme d'un « Capture The Flag » (CTF).</li></ul>",
+        traces: [
+          { nom: "Micro-certification ANSSI", desc: "Open Badge certifiant obtenu suite au QCM final de la SecNumacadémie." },
+          { nom: "Notice technique", desc: "Document collaboratif résumant le travail de recherche du groupe." },
+          { nom: "Support Diaporama", desc: "Support visuel utilisé pour la présentation orale devant l'enseignant." }
+        ],
+        niveau: 3,
+        niveauLabel: "Acquis (Niveau 1)",
+        autoeval: "<p>[Rédige ici ton auto-évaluation : Quelles ont été tes difficultés lors du CTF ? Qu'as-tu appris en termes d'hygiène numérique que tu ignorais avant ? Comment s'est passé le travail de groupe ?]</p>"
+      },
+      "sae102": {
+        code: "SAÉ 1.02",
+        title: "S'initier aux réseaux informatiques",
+        sem: "Semestre 1",
+        duree: "Multiples séances (TP/TD)",
+        mode: "Travail en équipe",
+        ue: ["UE1.1 — Administrer les réseaux et l'Internet"],
+        contexte: "<p>Cette SAÉ constitue l'initiation pratique et théorique aux fondements des réseaux informatiques. Elle aborde la structuration d'un réseau local (LAN), son architecture physique et logique, ainsi que le rôle de ses composants actifs et passifs.</p>",
+        ac: [
+          "AC11.02 : Comprendre l'architecture des systèmes numériques et des communications.",
+          "AC11.03 : Configurer les fonctions de base du réseau local.",
+          "AC11.06 : Installer un poste client, expliquer la procédure mise en place."
+        ],
+        taches: "<ul><li>Analyse et réalisation d'architectures réseaux de base.</li><li>Réalisation de la documentation réseau (Schémas physiques et schémas logiques sur Visio).</li><li>Configuration initiale d'équipements actifs.</li></ul>",
+        traces: [
+          { nom: "Schéma d'architecture", desc: "Schéma logique et physique du réseau conçu lors du projet." },
+          { nom: "Rapport de configuration", desc: "Rapport détaillant les commandes et configurations appliquées." }
+        ],
+        niveau: 2,
+        niveauLabel: "En cours d'acquisition",
+        autoeval: "<p>[Rédige ici ton auto-évaluation : As-tu compris la logique d'adressage IP ? Quelles commandes t'ont posé le plus de problèmes ?]</p>"
+      },
+      "sae103": {
+        code: "SAÉ 1.03",
+        title: "Découvrir un dispositif de transmission",
+        sem: "Semestre 1",
+        duree: "TP et projet",
+        mode: "Travail en binôme/groupe",
+        ue: ["UE1.2 — Connecter les entreprises et les usagers"],
+        contexte: "<p>Étude des supports physiques de transmission vus en première année : les câbles en cuivre (coaxiaux, Ethernet) et la fibre optique. L'objectif est de comprendre et de reproduire partiellement les paramétrages et les mesures automatiques réalisées par un certificateur professionnel.</p>",
+        ac: [
+          "AC12.01 : Mesurer et analyser les signaux.",
+          "AC12.03 : Déployer des supports de transmission.",
+          "AC12.05 : Communiquer avec un tiers et adapter son discours."
+        ],
+        taches: "<ul><li>Manipulation de câbles coaxiaux (RG58 à NVP 66%) pour déterminer leur longueur et la Vitesse de Propagation (NVP).</li><li>Mesure de la distance à un défaut via un analyseur DTF et en régime impulsionnel (GBF + Oscilloscope).</li><li>Réalisation d'une liaison sur fibre optique (FTTH) et mesure d'atténuation globale par photométrie.</li><li>Étude documentaire sur les étapes de certification d'un câble.</li></ul>",
+        traces: [
+          { nom: "Rapport de mesure Cuivre", desc: "Rapport (A4 recto-verso) avec calculs NVP et interprétation des courbes." },
+          { nom: "Rapport de mesure Fibre", desc: "Rapport d'atténuation photométrique de la liaison FTTH." },
+          { nom: "Fiche de synthèse documentaire", desc: "Fiche rédigée servant d'appui lors du QCM final." }
+        ],
+        niveau: 3,
+        niveauLabel: "Acquis (Niveau 1)",
+        autoeval: "<p>[Rédige ici ton auto-évaluation : Comment as-tu géré la prise en main de l'oscilloscope ? As-tu bien compris l'impact de l'atténuation sur la fibre optique ?]</p>"
+      },
+      "sae104": {
+        code: "SAÉ 1.04",
+        title: "Se présenter sur Internet",
+        sem: "Semestre 1",
+        duree: "Projet filé",
+        mode: "Individuel",
+        ue: ["UE1.3 — Créer des outils et des applications pour les R&T"],
+        contexte: "<p>Création d'une présence numérique à travers la réalisation d'un site Web multipages en HTML/CSS pur. L'objectif principal est de valider l'intégration des technologies Web, le respect des normes d'accessibilité (W3C/WCAG) et l'utilisation des outils de gestion de projet (R1.15).</p>",
+        ac: [
+          "AC13.01 : Utiliser un système informatique et ses outils.",
+          "AC13.04 : Connaître l'architecture et les technologies d'un site Web."
+        ],
+        taches: "<ul><li>Création d'au moins trois pages (accueil, page sujet, page à propos).</li><li>Conception et application d'une charte graphique cohérente avec des animations CSS.</li><li>Développement adaptatif (Responsive Design) avec Flexbox/CSS Grid.</li><li>Vérification de la conformité W3C et WCAG 2.0 AA.</li><li>Hébergement du site via GitHub Pages et utilisation de Git (commits porteurs de sens).</li></ul>",
+        traces: [
+          { nom: "Dépôt GitHub", desc: "Lien vers le code source hébergé et le README détaillé." },
+          { nom: "Livrables de gestion de projet", desc: "WBS, diagramme de Gantt et tableau de suivi Trello réalisés pour la R1.15." }
+        ],
+        niveau: 4,
+        niveauLabel: "Maîtrisé",
+        autoeval: "<p>[Rédige ici ton auto-évaluation : Le passage au Responsive Web Design t'a-t-il paru complexe ? Qu'as-tu appris en utilisant Git et GitHub ?]</p>"
+      },
+      "sae105": {
+        code: "SAÉ 1.05",
+        title: "Traiter des données",
+        sem: "Semestre 1",
+        duree: "20h Autonomie, 1h CM",
+        mode: "Travail en binôme",
+        ue: ["UE1.3 — Créer des outils et des applications pour les R&T"],
+        contexte: "<p>Le professionnel R&T doit savoir gérer efficacement le traitement de données brutes. Le but de cette SAÉ est de développer un petit programme Python pour récolter des données via une API publique, les mettre en forme, produire des statistiques et générer un export automatisé.</p>",
+        ac: [
+          "AC13.02 : Lire, exécuter, corriger et modifier un programme.",
+          "AC13.03 : Traduire un algorithme dans un langage (Python).",
+          "AC13.05 : Choisir les mécanismes de gestion de données (JSON/XML)."
+        ],
+        taches: "<ul><li>Interrogation d'une API REST en ligne (ex: OpenStreetMap) via la bibliothèque Python <code>requests</code>.</li><li>Extraction, tri et mise en forme des données aux formats structurés JSON et XML.</li><li>Génération dynamique d'un document d'export de statistiques au format Markdown (.md).</li></ul>",
+        traces: [
+          { nom: "Script Python", desc: "Code source documenté du script effectuant le traitement et l'appel API." },
+          { nom: "Rendu Markdown/HTML", desc: "Document compilé généré par le script Python illustrant les statistiques extraites." }
+        ],
+        niveau: 3,
+        niveauLabel: "Acquis (Niveau 1)",
+        autoeval: "<p>[Rédige ici ton auto-évaluation : Comment as-tu abordé la manipulation du JSON en Python ? As-tu réussi à automatiser la génération du Markdown sans erreur de syntaxe ?]</p>"
+      },
+      // SAÉ SEMESTRE 2 (En cours)
+      "sae201": { code: "SAÉ 2.01", title: "Construire un réseau informatique", sem: "Semestre 2", duree: "En cours", mode: "En cours", ue: ["UE2.1 — Administrer les réseaux"], contexte: "<p>Projet en cours de réalisation. Les détails seront ajoutés en fin de semestre.</p>", ac: ["AC en cours de validation"], taches: "<ul><li>Projet non finalisé.</li></ul>", traces: [{ nom: "À venir", desc: "Les traces seront déposées ici." }], niveau: 1, niveauLabel: "Non évalué", autoeval: "<p>L'autoévaluation sera rédigée en fin de semestre.</p>" },
+      "sae202": { code: "SAÉ 2.02", title: "Mesurer et caractériser un signal ou un système", sem: "Semestre 2", duree: "10h TP, 12h Projet", mode: "En binôme", ue: ["UE2.2 — Connecter les entreprises"], contexte: "<p>Analyse de signaux d'un système de transmission via RTL-SDR et présentation sous forme d'un bilan chiffré à un client en utilisant Matlab.</p>", ac: ["AC12.01 : Mesurer et analyser les signaux.", "AC12.02 : Caractériser des systèmes de transmission."], taches: "<ul><li>Initiation en ligne à Matlab.</li><li>Utilisation de matériels de télécommunication sans fil pilotés par Matlab.</li><li>Cartographie de la téléphonie mobile.</li></ul>", traces: [{ nom: "Certificat Matlab", desc: "Certification en ligne exigée." }, { nom: "Rapport de cartographie", desc: "Rapport de mesure sur la téléphonie mobile." }], niveau: 2, niveauLabel: "En cours (S2)", autoeval: "<p>Projet en cours...</p>" },
+      "sae203": { code: "SAÉ 2.03", title: "Mettre en place une solution informatique", sem: "Semestre 2", duree: "En cours", mode: "En cours", ue: ["UE2.3 — Créer des outils informatiques"], contexte: "<p>Projet en cours de réalisation. Les détails seront ajoutés en fin de semestre.</p>", ac: ["AC en cours de validation"], taches: "<ul><li>Projet non finalisé.</li></ul>", traces: [{ nom: "À venir", desc: "Les traces seront déposées ici." }], niveau: 1, niveauLabel: "Non évalué", autoeval: "<p>L'autoévaluation sera rédigée en fin de semestre.</p>" },
+      "sae204": { code: "SAÉ 2.04", title: "Projet intégratif", sem: "Semestre 2", duree: "Fin d'année", mode: "En groupe", ue: ["UE2.1", "UE2.2", "UE2.3"], contexte: "<p>Projet final mobilisant toutes les compétences de 1ère année.</p>", ac: ["Validation finale de l'ensemble des AC"], taches: "<ul><li>À définir</li></ul>", traces: [{ nom: "À venir", desc: "Livrables globaux." }], niveau: 1, niveauLabel: "Non évalué", autoeval: "<p>À venir.</p>" },
+      "sae205": { code: "SAÉ 2.05", title: "Portfolio", sem: "Semestre 2", duree: "Filé sur l'année", mode: "Individuel", ue: ["UE2.1", "UE2.2", "UE2.3"], contexte: "<p>Réalisation du site web tenant lieu de portfolio professionnel pour documenter et analyser la trajectoire de développement des compétences.</p>", ac: ["Démarche réflexive et autoévaluation."], taches: "<ul><li>Sélection des traces et preuves.</li><li>Analyse réflexive.</li><li>Développement Web.</li></ul>", traces: [{ nom: "Code source du site", desc: "Fichiers HTML/CSS." }], niveau: 2, niveauLabel: "En cours d'amélioration", autoeval: "<p>[Analyse sur la création du site à compléter à la fin de l'année.]</p>" }
+    };
+
+    function loadSAEDetail() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const saeId = urlParams.get('id');
+      const data = saeData[saeId];
+
+      if (!data) {
+        document.getElementById('sae-title').innerText = "SAÉ Introuvable";
+        document.getElementById('sae-contexte').innerHTML = "<p>Désolé, les données pour cette SAÉ n'existent pas ou l'URL est incorrecte.</p>";
+        return;
+      }
+
+      // Mise à jour de l'en-tête et Meta
+      document.title = `${data.code} — Portfolio R&T`;
+      document.getElementById('sae-code').innerText = data.code;
+      document.getElementById('sae-title').innerText = data.title;
+      document.getElementById('sae-sem').innerText = data.sem;
+      document.getElementById('sae-duree').innerText = data.duree;
+      document.getElementById('sae-mode').innerText = data.mode;
+      
+      // Sidebar Meta
+      document.getElementById('sd-sem').innerText = data.sem;
+      document.getElementById('sd-duree').innerText = data.duree;
+      document.getElementById('sd-mode').innerText = data.mode;
+
+      // UE List
+      document.getElementById('sae-comp-list').innerHTML = data.ue.map(u => `<div class="ue-tag">${u}</div>`).join('');
+
+      // Contenu principal
+      document.getElementById('sae-contexte').innerHTML = data.contexte;
+      document.getElementById('sae-taches').innerHTML = data.taches;
+      document.getElementById('sae-autoeval').innerHTML = data.autoeval;
+
+      // Liste des AC
+      let acHtml = '<ul>';
+      data.ac.forEach(ac => { acHtml += `<li>${ac}</li>`; });
+      acHtml += '</ul>';
+      document.getElementById('sae-ac-list').innerHTML = acHtml;
+
+      // Traces
+      let tracesHtml = '';
+      data.traces.forEach(trace => {
+        tracesHtml += `
+          <div class="trace-item" style="display:flex; align-items:center; background:#fff; padding:1rem; border:1px solid #ddd; border-radius:8px; margin-bottom:1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+            <div class="trace-icon" style="font-size:2rem; margin-right:1rem; color:#005b9f;">📄</div>
+            <div class="trace-info">
+              <div class="trace-name" style="font-weight:600; color:#333; margin-bottom:0.3rem;">${trace.nom}</div>
+              <div class="trace-desc" style="font-size:0.9rem; color:#666;">${trace.desc}</div>
+            </div>
+          </div>
+        `;
+      });
+      document.getElementById('sae-traces').innerHTML = tracesHtml;
+
+      // Dots Niveau
+      let dotsHtml = '';
+      for (let i = 1; i <= 4; i++) {
+        if (i <= data.niveau) {
+          dotsHtml += `<div class="dot filled" style="width:12px; height:12px; background:#005b9f; border-radius:50%;"></div>`;
+        } else {
+          dotsHtml += `<div class="dot" style="width:12px; height:12px; background:#ddd; border-radius:50%;"></div>`;
+        }
+      }
+      document.getElementById('sae-niveau').innerHTML = dotsHtml;
+      document.getElementById('sae-niveau-label').innerText = data.niveauLabel;
+    }
   </script>
 </body>
-
 </html>
