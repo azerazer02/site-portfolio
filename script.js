@@ -17,8 +17,7 @@ const saeData = {
     contexte: "Le professionnel R&T est l'un des premiers interlocuteurs des nouveaux collaborateurs arrivant au sein d'une entreprise concernant les risques de leur environnement numérique[cite: 768]. L'objectif de cette SAÉ était d'appréhender les menaces communes et d'apprendre à vulgariser les remédiations clés auprès d'utilisateurs non spécialistes[cite: 774, 793].",
     taches: "J'ai suivi une auto-formation individuelle sur la plateforme de l'ANSSI pour préparer la certification SecNumAcadémie[cite: 796, 974]. En parallèle, nous avons mené un travail d'expérimentation technique en groupe sur un lot dédié (mécanismes de force brute de mots de passe sur Debian, durcissement d'accès SSH par clés privées/publiques, ou cartographie et scan de ports réseau)[cite: 797, 1006, 1021, 1038]. Le projet s'est conclu par une restitution orale sur diaporamas et un TP technique d'application sous forme de Capture The Flag (CTF)[cite: 798, 799].",
     traces: [
-      { icon: '🏆', name: 'Micro-certification ANSSI', desc: 'Badge officiel obtenu suite à la validation à plus de 75% du parcours de formation SecNumAcadémie[cite: 974].' },
-      { icon: '📊', name: 'Notice & Diaporama de Lot', desc: 'Documentation technique collaborative rédigée sur l\'étude de notre lot et support visuel de soutenance[cite: 998, 999].' }
+      { icon: '🏆', name: 'Micro-certification ANSSI', desc: 'Badge officiel obtenu suite à la validation à plus de 75% du parcours de formation SecNumAcadémie.(je ne peux pas le recuerer car le site mooc n'est plus accesible.' },
     ],
     autoeval: "Cette situation m'a permis d'acquérir de bons réflexes d'administration système sécurisée, notamment sur la gestion rigoureuse des accès privilèges et l'analyse de vulnérabilités applicatives[cite: 774]. Le travail collaboratif et la mise en situation professionnelle du CTF ont développé ma réactivité face aux incidents d'infrastructure[cite: 799, 993]."
   },
@@ -68,9 +67,6 @@ const saeData = {
     comps: ['UE1.3 — Créer des outils et des applications informatiques pour les R&T'],
     contexte: "La consigne imposait la création d'un site web multipages complet, responsive et accessible, déployé pour présenter notre profil professionnel et nos travaux de manière propre[cite: 1063].",
     taches: "Développement intégral de la structure en HTML5 et de l'habillage en CSS3 en exploitant les grilles CSS Grid et Flexbox pour s'assurer de l'adaptation mobile[cite: 1063]. Validation du code aux normes W3C et WCAG 2.0 AA, archivage régulier par commits porteurs de sens sur Git et hébergement via GitHub Pages[cite: 1063].",
-    traces: [
-      { icon: '🌐', name: 'Dépôt et Fichier README.md', desc: 'Architecture propre du code source sur GitHub avec documentation explicative complète[cite: 1063].' },
-      { icon: '💻', name: 'Site Web Portfolio en ligne', desc: 'Interface fluide et responsive hébergée publiquement via la solution GitHub Pages.' }
     ],
     autoeval: "Bien que mon profil s'oriente vers les infrastructures système et réseaux, maîtriser la publication web et l'outil de gestion de version Git m'apporte une double compétence indispensable pour collaborer efficacement au sein d'une équipe technique."
   },
@@ -88,7 +84,6 @@ const saeData = {
     taches: "Conception et implémentation d'un script d'automatisation en langage Python[cite: 9, 29]. Nous avons configuré la bibliothèque `requests` pour effectuer des appels HTTP distants et récupérer des données géographiques brutes depuis l'API REST d'OpenStreetMap[cite: 55, 427]. Nous avons structuré le traitement des formats sérialisés JSON et XML, calculé des statistiques et automatisé l'export final des résultats dans un fichier structuré en Markdown[cite: 85, 129].",
     traces: [
       { icon: '🐍', name: 'Script d\'automatisation Python', desc: 'Code source complet incluant la gestion des requêtes API et le parsing de dictionnaires complexes[cite: 118, 427].' },
-      { icon: '📑', name: 'Fichier d\'export Markdown (.md)', desc: 'Rapport statistique final de synthèse généré dynamiquement par l\'application[cite: 85, 446].' }
     ],
     autoeval: "Manipuler des structures de données complexes (tableaux et structures imbriquées JSON/XML) a été un exercice exigeant[cite: 118, 129]. Surmonter les erreurs de requêtes HTTP m'a appris à analyser précisément les codes de retour serveurs (comme les erreurs 400 ou 404), une compétence clé pour le développement de scripts d'infrastructure[cite: 208, 227]."
   }
