@@ -26,24 +26,19 @@
         <div class="label">Synthèse de fin de semestre</div>
         <h2 style="margin-bottom:2rem">Bilan par Unité d'Enseignement (UE)</h2>
 
-        <h3 style="margin-bottom: 1rem; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #333;">Semestre 1</h3>
-        <div class="bilan-tabs" style="margin-bottom: 2rem;">
-          <div class="bilan-tab active" onclick="switchBilan(0, this)">UE1.1 — Administrer</div>
-          <div class="bilan-tab" onclick="switchBilan(1, this)">UE1.2 — Connecter</div>
-          <div class="bilan-tab" onclick="switchBilan(2, this)">UE1.3 — Créer</div>
-        </div>
-
-        <h3 style="margin-bottom: 1rem; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #333;">Semestre 2</h3>
-        <div class="bilan-tabs">
-          <div class="bilan-tab" onclick="switchBilan(3, this)">UE2.1 — Administrer</div>
-          <div class="bilan-tab" onclick="switchBilan(4, this)">UE2.2 — Connecter</div>
-          <div class="bilan-tab" onclick="switchBilan(5, this)">UE2.3 — Créer</div>
+        <div class="bilan-tabs" style="flex-wrap: wrap; row-gap: 0.5rem; margin-bottom: 2rem;">
+          <div class="bilan-tab active" onclick="switchBilan(0, this)">S1 — UE1.1 Administrer</div>
+          <div class="bilan-tab" onclick="switchBilan(1, this)">S1 — UE1.2 Connecter</div>
+          <div class="bilan-tab" onclick="switchBilan(2, this)">S1 — UE1.3 Créer</div>
+          <div class="bilan-tab" onclick="switchBilan(3, this)">S2 — UE2.1 Administrer</div>
+          <div class="bilan-tab" onclick="switchBilan(4, this)">S2 — UE2.2 Connecter</div>
+          <div class="bilan-tab" onclick="switchBilan(5, this)">S2 — UE2.3 Créer</div>
         </div>
 
         <div class="bilan-panel active" id="bilan-0">
           <div class="bilan-header">
             <h2>UE1.1 — Administrer les réseaux et l'Internet</h2>
-            <p>Niveau 1 : Assister l'administrateur du réseau (BUT 1 - Semestre 1)</p>
+            <p>Niveau 1 : Assister l'administrateur du réseau (BUT 1 — Semestre 1)</p>
           </div>
           <div class="ac-progress-list">
             <div class="ac-progress">
@@ -85,7 +80,7 @@
         <div class="bilan-panel" id="bilan-1">
           <div class="bilan-header">
             <h2>UE1.2 — Connecter les entreprises et les usagers</h2>
-            <p>Niveau 1 : Découvrir les transmissions et la ToIP (BUT 1 - Semestre 1)</p>
+            <p>Niveau 1 : Découvrir les transmissions et la ToIP (BUT 1 — Semestre 1)</p>
           </div>
           <div class="ac-progress-list">
             <div class="ac-progress">
@@ -117,7 +112,7 @@
         <div class="bilan-panel" id="bilan-2">
           <div class="bilan-header">
             <h2>UE1.3 — Créer des outils et des applications pour les R&T</h2>
-            <p>Niveau 1 : S'intégrer dans un service informatique (BUT 1 - Semestre 1)</p>
+            <p>Niveau 1 : S'intégrer dans un service informatique (BUT 1 — Semestre 1)</p>
           </div>
           <div class="ac-progress-list">
             <div class="ac-progress">
@@ -138,4 +133,221 @@
                 </div>
                 <div class="ac-progress-level">[ réussite estimée ]</div>
               </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:85
+              <div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div>
+            </div>
+          </div>
+          <div class="bilan-synthesis">
+            <h3>Synthèse de l'UE1.3</h3>
+            <div class="synthesis-grid">
+              <div>
+                <div class="synthesis-col-title">Acquis & points forts</div>
+                <div class="synthesis-item">???</div>
+              </div>
+              <div>
+                <div class="synthesis-col-title">Axes de progrès</div>
+                <div class="synthesis-item">???</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bilan-panel" id="bilan-3">
+          <div class="bilan-header">
+            <h2>UE2.1 — Administrer les réseaux et l'Internet</h2>
+            <p>Niveau 1 : Assister l'administrateur du réseau (BUT 1 — Semestre 2)</p>
+          </div>
+          <div class="ac-progress-list">
+            <div class="ac-progress">
+              <div class="ac-progress-header">
+                <div>
+                  <div class="ac-progress-code">SAÉ 2.01</div>
+                  <div class="ac-progress-text">Construire un réseau inf.</div>
+                </div>
+                <div class="ac-progress-level">[ réussite estimée ]</div>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+            </div>
+            <div class="ac-progress">
+              <div class="ac-progress-header">
+                <div>
+                  <div class="ac-progress-code">SAÉ 2.04</div>
+                  <div class="ac-progress-text">Projet intégratif</div>
+                </div>
+                <div class="ac-progress-level">[ réussite estimée ]</div>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+            </div>
+            <div class="ac-progress">
+              <div class="ac-progress-header">
+                <div>
+                  <div class="ac-progress-code">SAÉ 2.05</div>
+                  <div class="ac-progress-text">Portfolio</div>
+                </div>
+                <div class="ac-progress-level">[ réussite estimée ]</div>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+            </div>
+          </div>
+          <div class="bilan-synthesis">
+            <h3>Synthèse de l'UE2.1</h3>
+            <div class="synthesis-grid">
+              <div>
+                <div class="synthesis-col-title">Acquis & points forts</div>
+                <div class="synthesis-item">???</div>
+              </div>
+              <div>
+                <div class="synthesis-col-title">Axes de progrès</div>
+                <div class="synthesis-item">???</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bilan-panel" id="bilan-4">
+          <div class="bilan-header">
+            <h2>UE2.2 — Connecter les entreprises et les usagers</h2>
+            <p>Niveau 1 : Découvrir les transmissions et la ToIP (BUT 1 — Semestre 2)</p>
+          </div>
+          <div class="ac-progress-list">
+            <div class="ac-progress">
+              <div class="ac-progress-header">
+                <div>
+                  <div class="ac-progress-code">SAÉ 2.02</div>
+                  <div class="ac-progress-text">Mesur_caracté-sign/syst</div>
+                </div>
+                <div class="ac-progress-level">[ réussite estimée ]</div>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+            </div>
+            <div class="ac-progress">
+              <div class="ac-progress-header">
+                <div>
+                  <div class="ac-progress-code">SAÉ 2.04</div>
+                  <div class="ac-progress-text">Projet intégratif</div>
+                </div>
+                <div class="ac-progress-level">[ réussite estimée ]</div>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+            </div>
+            <div class="ac-progress">
+              <div class="ac-progress-header">
+                <div>
+                  <div class="ac-progress-code">SAÉ 2.05</div>
+                  <div class="ac-progress-text">Portfolio</div>
+                </div>
+                <div class="ac-progress-level">[ réussite estimée ]</div>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+            </div>
+          </div>
+          <div class="bilan-synthesis">
+            <h3>Synthèse de l'UE2.2</h3>
+            <div class="synthesis-grid">
+              <div>
+                <div class="synthesis-col-title">Acquis & points forts</div>
+                <div class="synthesis-item">???</div>
+              </div>
+              <div>
+                <div class="synthesis-col-title">Axes de progrès</div>
+                <div class="synthesis-item">???</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bilan-panel" id="bilan-5">
+          <div class="bilan-header">
+            <h2>UE2.3 — Créer des outils et des applications pour les R&T</h2>
+            <p>Niveau 1 : S'intégrer dans un service informatique (BUT 1 — Semestre 2)</p>
+          </div>
+          <div class="ac-progress-list">
+            <div class="ac-progress">
+              <div class="ac-progress-header">
+                <div>
+                  <div class="ac-progress-code">SAÉ 2.03</div>
+                  <div class="ac-progress-text">Mettre en place une solut. inf.</div>
+                </div>
+                <div class="ac-progress-level">[ réussite estimée ]</div>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+            </div>
+            <div class="ac-progress">
+              <div class="ac-progress-header">
+                <div>
+                  <div class="ac-progress-code">SAÉ 2.04</div>
+                  <div class="ac-progress-text">Projet intégratif</div>
+                </div>
+                <div class="ac-progress-level">[ réussite estimée ]</div>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+            </div>
+            <div class="ac-progress">
+              <div class="ac-progress-header">
+                <div>
+                  <div class="ac-progress-code">SAÉ 2.05</div>
+                  <div class="ac-progress-text">Portfolio</div>
+                </div>
+                <div class="ac-progress-level">[ réussite estimée ]</div>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+            </div>
+          </div>
+          <div class="bilan-synthesis">
+            <h3>Synthèse de l'UE2.3</h3>
+            <div class="synthesis-grid">
+              <div>
+                <div class="synthesis-col-title">Acquis & points forts</div>
+                <div class="synthesis-item">???</div>
+              </div>
+              <div>
+                <div class="synthesis-col-title">Axes de progrès</div>
+                <div class="synthesis-item">???</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchBilan(indexId, elementClic) {
+      // 1. Masquer tous les panneaux de bilan
+      let panels = document.querySelectorAll('.bilan-panel');
+      panels.forEach(function(panel) { panel.classList.remove('active'); });
+
+      // 2. Désactiver l'état visuel de tous les onglets
+      let tabs = document.querySelectorAll('.bilan-tab');
+      tabs.forEach(function(tab) { tab.classList.remove('active'); });
+
+      // 3. Activer uniquement le panneau ciblé et l'onglet cliqué
+      let targetPanel = document.getElementById('bilan-' + indexId);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+      }
+      if (elementClic) {
+        elementClic.classList.add('active');
+      }
+
+      // 4. Déclencher une réanimation propre des barres de progression de l'UE sélectionnée
+      setTimeout(() => {
+        document.querySelectorAll('#bilan-' + indexId + ' .progress-fill').forEach(bar => {
+          const w = bar.style.width;
+          bar.style.width = '0';
+          requestAnimationFrame(() => { bar.style.width = w; });
+        });
+      }, 50);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Animation initiale lors du chargement de la page pour le premier panneau actif (S1 - UE1.1)
+      document.querySelectorAll('#bilan-0 .progress-fill').forEach(bar => {
+        const w = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => { bar.style.width = w; }, 300);
+      });
+    });
+  </script>
+</body>
+</html>
