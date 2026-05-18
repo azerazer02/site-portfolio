@@ -3,7 +3,7 @@ function toggleMenu() {
   document.getElementById('navLinks').classList.toggle('open');
 }
 
-// ─── SAÉ DATA (Mise à jour avec le contenu de tes cours et projets) ─
+// ─── SAÉ DATA ────────────────────────────────────────────────────
 const saeData = {
   sae101: {
     code: 'SAÉ 1.01',
@@ -14,15 +14,14 @@ const saeData = {
       "Maîtriser les rôles et les principes fondamentaux des systèmes d'exploitation"
     ],
     comps: ['UE1.1 — Administrer les réseaux et l\'Internet'],
-    contexte: "Le professionnel R&T est souvent le premier interlocuteur pour la sécurité numérique d'une entreprise. L'objectif de cette SAÉ était de comprendre les menaces communes du cyberespace et d'être capable de sensibiliser des collaborateurs aux bonnes pratiques d'hygiène informatique.",
-    taches: "Dans un premier temps, j'ai suivi l'auto-formation du MOOC de l'ANSSI (SecNumAcademie) pour consolider mes bases individuelles. Ensuite, en groupe, nous avons mené un travail de recherche et d'expérimentation sur une thématique précise (gestion des mots de passe, accès SSH ou découverte de machines) que nous avons restitué à l'oral. Enfin, nous avons participé à un TP sous forme de 'Capture The Flag' (CTF).",
+    contexte: "Le professionnel R&T est l'un des premiers interlocuteurs des nouveaux collaborateurs arrivant au sein d'une entreprise concernant les risques de leur environnement numérique[cite: 768]. L'objectif de cette SAÉ était d'appréhender les menaces communes et d'apprendre à vulgariser les remédiations clés auprès d'utilisateurs non spécialistes[cite: 774, 793].",
+    taches: "J'ai suivi une auto-formation individuelle sur la plateforme de l'ANSSI pour préparer la certification SecNumAcadémie[cite: 796, 974]. En parallèle, nous avons mené un travail d'expérimentation technique en groupe sur un lot dédié (mécanismes de force brute de mots de passe sur Debian, durcissement d'accès SSH par clés privées/publiques, ou cartographie et scan de ports réseau)[cite: 797, 1006, 1021, 1038]. Le projet s'est conclu par une restitution orale sur diaporamas et un TP technique d'application sous forme de Capture The Flag (CTF)[cite: 798, 799].",
     traces: [
-      { icon: '🏆', name: 'Open Badge ANSSI', desc: 'Preuve de réussite de la micro-certification SecNumAcademie.' },
-      { icon: '📊', name: 'Support de présentation', desc: 'Diaporama utilisé pour notre restitution orale sur notre thématique de recherche.' }
+      { icon: '🏆', name: 'Micro-certification ANSSI', desc: 'Badge officiel obtenu suite à la validation à plus de 75% du parcours de formation SecNumAcadémie[cite: 974].' },
+      { icon: '📊', name: 'Notice & Diaporama de Lot', desc: 'Documentation technique collaborative rédigée sur l\'étude de notre lot et support visuel de soutenance[cite: 998, 999].' }
     ],
-    autoeval: "Cette SAÉ m'a permis de prendre réellement conscience des vulnérabilités classiques et de l'importance d'une bonne configuration (comme la force d'un mot de passe ou la cryptographie SSH). L'approche ludique du CTF m'a beaucoup motivé, même si certaines failles étaient difficiles à trouver. C'est une excellente introduction pour mon projet d'alternance et mes futures missions en administration système."
+    autoeval: "Cette situation m'a permis d'acquérir de bons réflexes d'administration système sécurisée, notamment sur la gestion rigoureuse des accès privilèges et l'analyse de vulnérabilités applicatives[cite: 774]. Le travail collaboratif et la mise en situation professionnelle du CTF ont développé ma réactivité face aux incidents d'infrastructure[cite: 799, 993]."
   },
-
   sae102: {
     code: 'SAÉ 1.02',
     title: "S'initier aux réseaux informatiques",
@@ -32,15 +31,14 @@ const saeData = {
       "Installer un poste client, expliquer la procédure mise en place"
     ],
     comps: ['UE1.1 — Administrer les réseaux et l\'Internet'],
-    contexte: "Il s'agissait ici de comprendre et de mettre en œuvre l'architecture de base d'un réseau local d'entreprise, en allant du câblage physique jusqu'à la configuration logique des équipements.",
-    taches: "Nous avons configuré des équipements actifs (switchs, routeurs) et paramétré l'adressage IP. Un point central de la SAÉ a été la modélisation de notre réseau via la réalisation de schémas physiques et logiques (format Visio), ainsi que la répartition et la priorisation des tâches au sein de notre binôme.",
+    contexte: "L'objectif était de concevoir, documenter et déployer l'architecture réseau fonctionnelle d'une infrastructure locale simulée, en partant du câblage physique jusqu'à l'adressage logique des hôtes.",
+    taches: "Nous avons procédé à la configuration logicielle d'équipements actifs et de postes clients. Nous avons planifié nos livrables (planification et répartition via Trello) et produit des schémas d'architecture rigoureux[cite: 1063].",
     traces: [
-      { icon: '🗺️', name: 'Schéma physique et logique', desc: 'Plan détaillé du réseau réalisé sous Visio.' },
-      { icon: '📋', name: 'Fichier de répartition des tâches', desc: 'Tableau de suivi démontrant l\'organisation de notre binôme.' }
+      { icon: '🗺️', name: 'Schéma physique et logique', desc: 'Plans d\'architectures complets exportés aux formats Visio et image[cite: 1063].' },
+      { icon: '📋', name: 'Livrables d\'organisation (WBS / Gantt)', desc: 'Documents de gestion de projet démontrant la bonne tenue du cahier des charges[cite: 1063].' }
     ],
-    autoeval: "La traduction d'un besoin théorique vers une configuration pratique sur le matériel m'a demandé de l'adaptation. J'ai compris l'importance vitale d'une documentation claire (les schémas) pour faciliter le dépannage futur. Cette rigueur me sera indispensable pour la gestion d'infrastructures plus complexes."
+    autoeval: "La formalisation de schémas techniques normalisés m'a appris l'importance de la rigueur documentaire en entreprise pour optimiser les futures interventions de maintenance ou de supervision réseau."
   },
-
   sae103: {
     code: 'SAÉ 1.03',
     title: "Découvrir un dispositif de transmission",
@@ -51,16 +49,14 @@ const saeData = {
       "Communiquer avec un tiers et adapter son discours"
     ],
     comps: ['UE1.2 — Connecter les entreprises et les usagers'],
-    contexte: "Ne disposant pas d'un certificateur de câble automatisé, le but de cette SAÉ était de reproduire manuellement les mesures de certification pour comprendre le comportement physique des supports de transmission (câbles en cuivre et fibre optique).",
-    taches: "J'ai manipulé des câbles coaxiaux et Ethernet pour déterminer leur longueur (DTF) et calculer la NVP à l'aide d'un générateur basse fréquence (GBF) et d'un oscilloscope. En parallèle, j'ai réalisé une liaison fibre optique (FTTH) sur laquelle j'ai effectué une mesure d'atténuation globale par photométrie.",
+    contexte: "Cette SAÉ ciblait l'étude pratique et expérimentale des supports physiques de transmission de première année : les câbles en cuivre (coaxiaux et paires torsadées) et la fibre optique[cite: 593]. Le but était de comprendre et reproduire manuellement les analyses effectuées de manière automatique par un certificateur industriel[cite: 601].",
+    taches: "Pour le pôle cuivre, j'ai manipulé des câbles pour relever le temps de propagation d'une impulsion à l'aide d'un GBF et d'un oscilloscope afin de calculer la NVP et localiser la distance à un défaut (Distance to Fault)[cite: 619, 623]. Pour le pôle optique, j'ai réalisé le câblage complet d'une liaison de type FTTH et procédé à une qualification de son atténuation globale par photométrie[cite: 604, 624].",
     traces: [
-      { icon: '📄', name: 'Rapport de mesure (Cuivre)', desc: 'Rapport justifiant les calculs de NVP et les mesures DTF.' },
-      { icon: '📄', name: 'Rapport de mesure (Fibre)', desc: 'Rapport présentant l\'atténuation relevée par photométrie.' },
-      { icon: '📝', name: 'Fiche de synthèse documentaire', desc: 'Synthèse des normes de certification autorisée pour le QCM final.' }
+      { icon: '📄', name: 'Rapport de mesure Cuivre', desc: 'Rapport technique A4 détaillant le calcul théorique de la NVP et l\'analyse DTF[cite: 617, 622].' },
+      { icon: '📄', name: 'Rapport de mesure Fibre Optique', desc: 'Bilan de puissance et relevé d\'affaiblissement de la liaison FTTH[cite: 604, 624].' }
     ],
-    autoeval: "Manipuler les ondes sur l'oscilloscope et manipuler la fibre optique demande beaucoup de minutie. Comprendre les phénomènes physiques (atténuation, réflexion) m'a permis de réaliser qu'un problème réseau n'est pas toujours logiciel, mais souvent matériel. Cela renforce ma capacité de diagnostic global."
+    autoeval: "Faire face aux contraintes réelles du signal physique m'a permis de lier les théories mathématiques à la réalité du terrain. Travailler avec minutie sur la fibre optique m'a sensibilisé aux problématiques concrètes d'atténuation que l'on rencontre en raccordement client."
   },
-
   sae104: {
     code: 'SAÉ 1.04',
     title: "Se présenter sur Internet",
@@ -70,15 +66,14 @@ const saeData = {
       "Connaître l'architecture et les technologies d'un site Web"
     ],
     comps: ['UE1.3 — Créer des outils et des applications informatiques pour les R&T'],
-    contexte: "Dans le cadre de cette SAÉ, la mission consistait à concevoir de A à Z un site web multipages statique pour présenter un sujet personnel, en respectant les standards du web et l'accessibilité.",
-    taches: "J'ai développé le site en HTML et CSS pur, en utilisant Flexbox/Grid pour le rendre adaptatif (Responsive Design). J'ai dû m'assurer de la conformité W3C et WCAG 2.0 (accessibilité). Le code source a été versionné sur GitHub et hébergé via GitHub Pages, le tout documenté par un fichier README détaillé.",
+    contexte: "La consigne imposait la création d'un site web multipages complet, responsive et accessible, déployé pour présenter notre profil professionnel et nos travaux de manière propre[cite: 1063].",
+    taches: "Développement intégral de la structure en HTML5 et de l'habillage en CSS3 en exploitant les grilles CSS Grid et Flexbox pour s'assurer de l'adaptation mobile[cite: 1063]. Validation du code aux normes W3C et WCAG 2.0 AA, archivage régulier par commits porteurs de sens sur Git et hébergement via GitHub Pages[cite: 1063].",
     traces: [
-      { icon: '🌐', name: 'Lien GitHub Pages', desc: 'URL du site web hébergé et fonctionnel.' },
-      { icon: '💻', name: 'Code source et README.md', desc: 'Dépôt GitHub illustrant l\'organisation de mon code et mes commits.' }
+      { icon: '🌐', name: 'Dépôt et Fichier README.md', desc: 'Architecture propre du code source sur GitHub avec documentation explicative complète[cite: 1063].' },
+      { icon: '💻', name: 'Site Web Portfolio en ligne', desc: 'Interface fluide et responsive hébergée publiquement via la solution GitHub Pages.' }
     ],
-    autoeval: "Bien que mon orientation principale soit l'administration système, comprendre la structure du web m'aide à mieux appréhender la façon dont les serveurs dialoguent avec les clients. L'apprentissage du versioning avec Git (commits réguliers) est une compétence transversale que je réutiliserai tout le temps."
+    autoeval: "Bien que mon profil s'oriente vers les infrastructures système et réseaux, maîtriser la publication web et l'outil de gestion de version Git m'apporte une double compétence indispensable pour collaborer efficacement au sein d'une équipe technique."
   },
-
   sae105: {
     code: 'SAÉ 1.05',
     title: "Traiter des données",
@@ -86,39 +81,36 @@ const saeData = {
     acs: [
       "Lire, exécuter, corriger et modifier un programme",
       "Traduire un algorithme, dans un langage et pour un environnement donné",
-      "Choisir les mécanismes de gestion de données adaptés"
+      "Choisir les mécanismes de gestion de données adaptés au développement de l'outil"
     ],
     comps: ['UE1.3 — Créer des outils et des applications informatiques pour les R&T'],
-    contexte: "Le professionnel R&T doit souvent automatiser des tâches pour exploiter des données brutes (logs, état des équipements). L'objectif était de créer un programme capable de récupérer des informations sur le web, de les traiter et de les formater en statistiques lisibles.",
-    taches: "J'ai développé un script en Python utilisant la bibliothèque `requests` pour interroger l'API REST d'OpenStreetMap. J'ai ensuite écrit le code permettant de parser les données reçues (en format JSON ou XML), d'effectuer des calculs statistiques, puis d'exporter automatiquement un rapport final structuré en langage Markdown.",
+    contexte: "Les techniciens R&T doivent régulièrement centraliser des informations brutes (provenant d'équipements ou de serveurs) afin de les trier et automatiser leur mise en forme[cite: 25, 27]. L'objectif était de développer un outil capable d'interroger des services distants et de générer un bilan synthétique exploitable[cite: 27, 28].",
+    taches: "Conception et implémentation d'un script d'automatisation en langage Python[cite: 9, 29]. Nous avons configuré la bibliothèque `requests` pour effectuer des appels HTTP distants et récupérer des données géographiques brutes depuis l'API REST d'OpenStreetMap[cite: 55, 427]. Nous avons structuré le traitement des formats sérialisés JSON et XML, calculé des statistiques et automatisé l'export final des résultats dans un fichier structuré en Markdown[cite: 85, 129].",
     traces: [
-      { icon: '🐍', name: 'Script Python', desc: 'Le code source contenant les requêtes API et la logique de traitement.' },
-      { icon: '📑', name: 'Rapport Markdown', desc: 'Le document statique généré automatiquement par le script.' }
+      { icon: '🐍', name: 'Script d\'automatisation Python', desc: 'Code source complet incluant la gestion des requêtes API et le parsing de dictionnaires complexes[cite: 118, 427].' },
+      { icon: '📑', name: 'Fichier d\'export Markdown (.md)', desc: 'Rapport statistique final de synthèse généré dynamiquement par l\'application[cite: 85, 446].' }
     ],
-    autoeval: "Interagir avec une API REST et comprendre la différence entre JSON et XML a été une révélation technique. J'ai rencontré des difficultés avec l'extraction de certains nœuds XML profonds, mais l'utilisation des bibliothèques Python a simplifié la tâche. L'automatisation est un axe que je veux absolument développer pour mon profil."
+    autoeval: "Manipuler des structures de données complexes (tableaux et structures imbriquées JSON/XML) a été un exercice exigeant[cite: 118, 129]. Surmonter les erreurs de requêtes HTTP m'a appris à analyser précisément les codes de retour serveurs (comme les erreurs 400 ou 404), une compétence clé pour le développement de scripts d'infrastructure[cite: 208, 227]."
   }
 };
 
-// ─── CHARGEMENT DU DÉTAIL ────────────────────────────────────────
+// ─── CHARGEMENT DU DÉTAIL DYNAMIQUE ──────────────────────────────
 function loadSAEDetail() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
 
-  // Si on est sur une page sans ID valide, on ne fait rien
+  // Sécurité si aucun identifiant correspondant n'est trouvé
   if (!id || !saeData[id]) return;
 
   const d = saeData[id];
   
-  // Remplissage des textes simples
+  // Remplissage des textes d'entête
   const elements = {
     'sae-code': d.code,
     'sae-title': d.title,
     'sae-sem': d.sem,
-    'sae-duree': 'Durée : ' + d.duree,
-    'sae-mode': d.mode,
-    'sd-sem': d.sem,
-    'sd-duree': d.duree,
-    'sd-mode': d.mode
+    'sae-duree': d.duree,
+    'sae-mode': d.mode
   };
 
   for (let key in elements) {
@@ -126,21 +118,18 @@ function loadSAEDetail() {
     if (el) el.textContent = elements[key];
   }
 
-  // Remplissage dynamique des nouvelles sections (Contexte, Tâches, Autoévaluation)
-  if (d.contexte) {
-    const ctx = document.getElementById('sae-contexte');
-    if (ctx) ctx.innerHTML = `<p>${d.contexte}</p>`;
+  // Remplissage des blocs éditoriaux principaux
+  if (document.getElementById('sae-contexte')) {
+    document.getElementById('sae-contexte').innerHTML = `<p>${d.contexte}</p>`;
   }
-  if (d.taches) {
-    const taches = document.getElementById('sae-taches');
-    if (taches) taches.innerHTML = `<p>${d.taches}</p>`;
+  if (document.getElementById('sae-taches')) {
+    document.getElementById('sae-taches').innerHTML = `<p>${d.taches}</p>`;
   }
-  if (d.autoeval) {
-    const autoeval = document.getElementById('sae-autoeval');
-    if (autoeval) autoeval.innerHTML = `<p>${d.autoeval}</p>`;
+  if (document.getElementById('sae-autoeval')) {
+    document.getElementById('sae-autoeval').innerHTML = `<p>${d.autoeval}</p>`;
   }
 
-  // Remplissage des Apprentissages Critiques
+  // Remplissage de la liste des Apprentissages Critiques (AC)
   const acList = document.getElementById('sae-ac-list');
   if (acList) {
     acList.innerHTML = d.acs.map(texte => `
@@ -150,7 +139,7 @@ function loadSAEDetail() {
     `).join('');
   }
 
-  // Remplissage des Traces / Preuves
+  // Remplissage de la liste des Preuves & Traces
   const tracesList = document.getElementById('sae-traces');
   if (tracesList && d.traces) {
     tracesList.innerHTML = d.traces.map(t => `
@@ -164,17 +153,19 @@ function loadSAEDetail() {
     `).join('');
   }
 
-  // Remplissage des Compétences (Sidebar)
+  // Remplissage des Compétences Associées (Sidebar)
   const compList = document.getElementById('sae-comp-list');
   if (compList) {
     compList.innerHTML = d.comps.map(c => `<div class="sidebar-item">${c}</div>`).join('');
   }
 
-  // Modification du titre de l'onglet du navigateur
+  // Changement du titre de l'onglet du navigateur
   document.title = d.code + " — " + d.title;
 }
 
-// Initialisation au chargement de la page de détail uniquement
-if (document.getElementById('page-sae-detail')) {
-  window.addEventListener('DOMContentLoaded', loadSAEDetail);
-}
+// Déclenchement sécurisé dès que le DOM est complètement chargé et construit
+window.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('page-sae-detail')) {
+    loadSAEDetail();
+  }
+});
