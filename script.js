@@ -17,7 +17,7 @@ const saeData = {
     contexte: "Le professionnel R&T est l'un des premiers interlocuteurs des nouveaux collaborateurs arrivant au sein d'une entreprise concernant les risques de leur environnement numérique. L'objectif de cette SAÉ était d'appréhender les menaces communes et d'apprendre à vulgariser les remédiations clés auprès d'utilisateurs non spécialistes.",
     taches: "J'ai suivi une auto-formation individuelle sur la plateforme de l'ANSSI pour préparer la certification SecNumAcadémie. En parallèle, nous avons mené un travail d'expérimentation technique en groupe sur un lot dédié (mécanismes de force brute de mots de passe sur Debian, durcissement d'accès SSH par clés privées/publiques, ou cartographie et scan de ports réseau). Le projet s'est conclu par une restitution orale sur diaporamas et un TP technique d'application sous forme de Capture The Flag (CTF).",
     traces: [
-      { icon: '🏆', name: 'Micro-certification ANSSI', desc: "Badge officiel obtenu suite à la validation à plus de 75% du parcours de formation SecNumAcadémie.(je ne peux pas le recuerer car le site mooc n'est plus accesible." },
+      { icon: '🏆', name: 'Micro-certification ANSSI', desc: "Badge officiel obtenu suite à la validation à plus de 75% du parcours de formation SecNumAcadémie.(je ne peux pas le recuerer car le site mooc n'est plus accesible)." },
     ],
     autoeval: "Cette situation m'a permis d'acquérir de bons réflexes d'administration système sécurisée, notamment sur la gestion rigoureuse des accès privilèges et l'analyse de vulnérabilités applicatives. Le travail collaboratif et la mise en situation professionnelle du CTF ont développé ma réactivité face aux incidents d'infrastructure."
   },
