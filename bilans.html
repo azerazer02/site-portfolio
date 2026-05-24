@@ -26,282 +26,137 @@
         <div class="label">Synthèse de fin de semestre</div>
         <h2 style="margin-bottom:2rem">Bilan par Unité d'Enseignement (UE)</h2>
 
-        <div class="bilan-tabs" style="flex-wrap: wrap; row-gap: 0.5rem; margin-bottom: 2rem;">
-          <div class="bilan-tab active" onclick="switchBilan(0, this)">S1 — UE1.1 Administrer</div>
-          <div class="bilan-tab" onclick="switchBilan(1, this)">S1 — UE1.2 Connecter</div>
-          <div class="bilan-tab" onclick="switchBilan(2, this)">S1 — UE1.3 Créer</div>
-          <div class="bilan-tab" onclick="switchBilan(3, this)">S2 — UE2.1 Administrer</div>
-          <div class="bilan-tab" onclick="switchBilan(4, this)">S2 — UE2.2 Connecter</div>
-          <div class="bilan-tab" onclick="switchBilan(5, this)">S2 — UE2.3 Créer</div>
+        <div class="bilan-tabs" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
+          <button class="bilan-tab active" onclick="switchBilan('0', this)">UE 1.1 — Réseaux & Systèmes</button>
+          <button class="bilan-tab" onclick="switchBilan('1', this)">UE 1.2 — Télécoms & Physiques</button>
+          <button class="bilan-tab" onclick="switchBilan('2', this)">UE 1.3 — Dév & Informatique</button>
         </div>
 
         <div class="bilan-panel active" id="bilan-0">
-          <div class="bilan-header">
-            <h2>UE1.1 — Administrer les réseaux et l'Internet</h2>
-            <p>Niveau 1 : Assister l'administrateur du réseau (BUT 1 — Semestre 1)</p>
-          </div>
-          <div class="ac-progress-list">
-            <div class="ac-progress">
-              <div class="ac-progress-header">
-                <div>
-                  <div class="ac-progress-code">SAÉ 1.01</div>
-                  <div class="ac-progress-text">Se sensibiliser à l'hygiène informatique</div>
-                </div>
-                <div class="ac-progress-level">[ réussite estimée ]</div>
+          <div class="sae-body">
+            <div class="sae-main-content">
+              <div class="sae-section">
+                <div class="sae-section-title">Présentation de l'UE</div>
+                <p>Cette unité se concentre sur l'administration des architectures réseaux locales et la sécurisation des systèmes d'exploitation. Elle regroupe les bases du routage/commutation et l'hygiène informatique.</p>
               </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:95%"></div></div>
+              
+              <div class="sae-section">
+                <div class="sae-section-title" style="color: #2e7d32;">✔ Acquis de compétences</div>
+                <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                  <li>Configuration d'équipements actifs (Switches et Routeurs Cisco) en CLI.</li>
+                  <li>Sécurisation des accès serveurs sous Linux Debian (durcissement SSH par clés et gestion des privilèges).</li>
+                  <li>Méthodologie de diagnostic de pannes réseau et analyse de scans de ports.</li>
+                </ul>
+              </div>
+
+              <div class="sae-section">
+                <div class="sae-section-title" style="color: #c62828;">↗ Axes de progrès</div>
+                <ul style="padding-left: 1.5rem;">
+                  <li>Approfondir l'automatisation des configurations d'équipements pour éviter les erreurs manuelles.</li>
+                  <li>Gagner en rapidité lors des procédures de réinitialisation et de masquage d'adressage sous pression (format CTF).</li>
+                </ul>
+              </div>
             </div>
-            <div class="ac-progress">
-              <div class="ac-progress-header">
-                <div>
-                  <div class="ac-progress-code">SAÉ 1.02</div>
-                  <div class="ac-progress-text">S'initier aux réseaux informatiques</div>
+            
+            <div class="sae-sidebar">
+              <div class="sidebar-card">
+                <div class="sidebar-card-title">Progression</div>
+                <div class="progress-container" style="margin-top: 1rem;">
+                  <div class="progress-label" style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:0.3rem;">
+                    <span>Maîtrise globale</span>
+                    <span>85%</span>
+                  </div>
+                  <div class="progress-bar" style="background: var(--bg2); height: 8px; border-radius: 4px; overflow: hidden;">
+                    <div class="progress-fill" style="width: 85%; background: var(--accent); height: 100%; transition: width 0.6s ease;"></div>
+                  </div>
                 </div>
-                <div class="ac-progress-level">[ réussite estimée ]</div>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
-            </div>
-          </div>
-          <div class="bilan-synthesis">
-            <h3>Synthèse de l'UE1.1</h3>
-            <div class="synthesis-grid">
-              <div>
-                <div class="synthesis-col-title">Acquis & points forts</div>
-                <div class="synthesis-item">???</div>
-              </div>
-              <div>
-                <div class="synthesis-col-title">Axes de progrès</div>
-                <div class="synthesis-item">???</div>
               </div>
             </div>
           </div>
         </div>
 
         <div class="bilan-panel" id="bilan-1">
-          <div class="bilan-header">
-            <h2>UE1.2 — Connecter les entreprises et les usagers</h2>
-            <p>Niveau 1 : Découvrir les transmissions et la ToIP (BUT 1 — Semestre 1)</p>
-          </div>
-          <div class="ac-progress-list">
-            <div class="ac-progress">
-              <div class="ac-progress-header">
-                <div>
-                  <div class="ac-progress-code">SAÉ 1.03</div>
-                  <div class="ac-progress-text">Découvrir un dispositif de transmission</div>
-                </div>
-                <div class="ac-progress-level">[ réussite estimée ]</div>
+          <div class="sae-body">
+            <div class="sae-main-content">
+              <div class="sae-section">
+                <div class="sae-section-title">Présentation de l'UE</div>
+                <p>Orientée vers les briques physiques de la transmission de données, cette UE englobe l'étude des signaux analogiques/numériques, les supports en cuivre (coaxial, paires torsadées) et le déploiement de liaisons optiques FTTH.</p>
               </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div>
+
+              <div class="sae-section">
+                <div class="sae-section-title" style="color: #2e7d32;">✔ Acquis de compétences</div>
+                <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                  <li>Manipulation d'outils de mesure industriels (oscilloscope, GBF, photomètre).</li>
+                  <li>Localisation précise de défauts sur câble cuivre via l'analyse Distance to Fault (DTF).</li>
+                  <li>Raccordement et calcul de bilans de puissance/atténuation sur de la fibre optique.</li>
+                </ul>
+              </div>
+
+              <div class="sae-section">
+                <div class="sae-section-title" style="color: #c62828;">↗ Axes de progrès</div>
+                <ul style="padding-left: 1.5rem;">
+                  <li>Renforcer la rigueur mathématique lors de l'établissement des rapports théoriques de calcul de la NVP.</li>
+                  <li>Améliorer la dextérité manuelle lors des étapes délicates de dénudage et de soudure de la fibre optique.</li>
+                </ul>
+              </div>
             </div>
-          </div>
-          <div class="bilan-synthesis">
-            <h3>Synthèse de l'UE1.2</h3>
-            <div class="synthesis-grid">
-              <div>
-                <div class="synthesis-col-title">Acquis & points forts</div>
-                <div class="synthesis-item">???</div>
-              </div>
-              <div>
-                <div class="synthesis-col-title">Axes de progrès</div>
-                <div class="synthesis-item">???</div>
+
+            <div class="sae-sidebar">
+              <div class="sidebar-card">
+                <div class="sidebar-card-title">Progression</div>
+                <div class="progress-container" style="margin-top: 1rem;">
+                  <div class="progress-label" style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:0.3rem;">
+                    <span>Maîtrise globale</span>
+                    <span>75%</span>
+                  </div>
+                  <div class="progress-bar" style="background: var(--bg2); height: 8px; border-radius: 4px; overflow: hidden;">
+                    <div class="progress-fill" style="width: 75%; background: var(--accent); height: 100%; transition: width 0.6s ease;"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <div class="bilan-panel" id="bilan-2">
-          <div class="bilan-header">
-            <h2>UE1.3 — Créer des outils et des applications pour les R&T</h2>
-            <p>Niveau 1 : S'intégrer dans un service informatique (BUT 1 — Semestre 1)</p>
-          </div>
-          <div class="ac-progress-list">
-            <div class="ac-progress">
-              <div class="ac-progress-header">
-                <div>
-                  <div class="ac-progress-code">SAÉ 1.04</div>
-                  <div class="ac-progress-text">Se présenter sur Internet</div>
-                </div>
-                <div class="ac-progress-level">[ réussite estimée ]</div>
+          <div class="sae-body">
+            <div class="sae-main-content">
+              <div class="sae-section">
+                <div class="sae-section-title">Présentation de l'UE</div>
+                <p>Cette unité regroupe le développement d'applications d'infrastructure et la création web. Elle pose les bases de l'algorithmique, de l'automatisation par script et du respect des standards d'accessibilité numérique.</p>
               </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:98%"></div></div>
-            </div>
-            <div class="ac-progress">
-              <div class="ac-progress-header">
-                <div>
-                  <div class="ac-progress-code">SAÉ 1.05</div>
-                  <div class="ac-progress-text">Traiter des données</div>
-                </div>
-                <div class="ac-progress-level">[ réussite estimée ]</div>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div>
-            </div>
-          </div>
-          <div class="bilan-synthesis">
-            <h3>Synthèse de l'UE1.3</h3>
-            <div class="synthesis-grid">
-              <div>
-                <div class="synthesis-col-title">Acquis & points forts</div>
-                <div class="synthesis-item">???</div>
-              </div>
-              <div>
-                <div class="synthesis-col-title">Axes de progrès</div>
-                <div class="synthesis-item">???</div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="bilan-panel" id="bilan-3">
-          <div class="bilan-header">
-            <h2>UE2.1 — Administrer les réseaux et l'Internet</h2>
-            <p>Niveau 1 : Assister l'administrateur du réseau (BUT 1 — Semestre 2)</p>
-          </div>
-          <div class="ac-progress-list">
-            <div class="ac-progress">
-              <div class="ac-progress-header">
-                <div>
-                  <div class="ac-progress-code">SAÉ 2.01</div>
-                  <div class="ac-progress-text">Construire un réseau inf.</div>
-                </div>
-                <div class="ac-progress-level">[ réussite estimée ]</div>
+              <div class="sae-section">
+                <div class="sae-section-title" style="color: #2e7d32;">✔ Acquis de compétences</div>
+                <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                  <li>Développement de scripts d'automatisation Python avec requêtes REST (API OpenStreetMap).</li>
+                  <li>Parsing de structures de données sérialisées complexes au format JSON et XML.</li>
+                  <li>Création de sites web responsives en HTML5/CSS3 valides W3C et conformes aux critères d'accessibilité WCAG.</li>
+                  <li>Gestion de versioning et collaboration d'équipe via Git (commits rigoureux, GitHub Pages).</li>
+                </ul>
               </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-            </div>
-            <div class="ac-progress">
-              <div class="ac-progress-header">
-                <div>
-                  <div class="ac-progress-code">SAÉ 2.04</div>
-                  <div class="ac-progress-text">Projet intégratif</div>
-                </div>
-                <div class="ac-progress-level">[ réussite estimée ]</div>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-            </div>
-            <div class="ac-progress">
-              <div class="ac-progress-header">
-                <div>
-                  <div class="ac-progress-code">SAÉ 2.05</div>
-                  <div class="ac-progress-text">Portfolio</div>
-                </div>
-                <div class="ac-progress-level">[ réussite estimée ]</div>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-            </div>
-          </div>
-          <div class="bilan-synthesis">
-            <h3>Synthèse de l'UE2.1</h3>
-            <div class="synthesis-grid">
-              <div>
-                <div class="synthesis-col-title">Acquis & points forts</div>
-                <div class="synthesis-item">???</div>
-              </div>
-              <div>
-                <div class="synthesis-col-title">Axes de progrès</div>
-                <div class="synthesis-item">???</div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="bilan-panel" id="bilan-4">
-          <div class="bilan-header">
-            <h2>UE2.2 — Connecter les entreprises et les usagers</h2>
-            <p>Niveau 1 : Découvrir les transmissions et la ToIP (BUT 1 — Semestre 2)</p>
-          </div>
-          <div class="ac-progress-list">
-            <div class="ac-progress">
-              <div class="ac-progress-header">
-                <div>
-                  <div class="ac-progress-code">SAÉ 2.02</div>
-                  <div class="ac-progress-text">Mesur_caracté-sign/syst</div>
-                </div>
-                <div class="ac-progress-level">[ réussite estimée ]</div>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-            </div>
-            <div class="ac-progress">
-              <div class="ac-progress-header">
-                <div>
-                  <div class="ac-progress-code">SAÉ 2.04</div>
-                  <div class="ac-progress-text">Projet intégratif</div>
-                </div>
-                <div class="ac-progress-level">[ réussite estimée ]</div>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-            </div>
-            <div class="ac-progress">
-              <div class="ac-progress-header">
-                <div>
-                  <div class="ac-progress-code">SAÉ 2.05</div>
-                  <div class="ac-progress-text">Portfolio</div>
-                </div>
-                <div class="ac-progress-level">[ réussite estimée ]</div>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-            </div>
-          </div>
-          <div class="bilan-synthesis">
-            <h3>Synthèse de l'UE2.2</h3>
-            <div class="synthesis-grid">
-              <div>
-                <div class="synthesis-col-title">Acquis & points forts</div>
-                <div class="synthesis-item">???</div>
-              </div>
-              <div>
-                <div class="synthesis-col-title">Axes de progrès</div>
-                <div class="synthesis-item">???</div>
+              <div class="sae-section">
+                <div class="sae-section-title" style="color: #c62828;">↗ Axes de progrès</div>
+                <ul style="padding-left: 1.5rem;">
+                  <li>Améliorer la gestion des exceptions et des codes d'erreurs HTTP (erreurs 400, 404, etc.) dans les scripts Python.</li>
+                  <li>Optimiser la structure du code CSS en exploitant davantage de variables natives pour simplifier la maintenance graphique.</li>
+                </ul>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="bilan-panel" id="bilan-5">
-          <div class="bilan-header">
-            <h2>UE2.3 — Créer des outils et des applications pour les R&T</h2>
-            <p>Niveau 1 : S'intégrer dans un service informatique (BUT 1 — Semestre 2)</p>
-          </div>
-          <div class="ac-progress-list">
-            <div class="ac-progress">
-              <div class="ac-progress-header">
-                <div>
-                  <div class="ac-progress-code">SAÉ 2.03</div>
-                  <div class="ac-progress-text">Mettre en place une solut. inf.</div>
+            <div class="sae-sidebar">
+              <div class="sidebar-card">
+                <div class="sidebar-card-title">Progression</div>
+                <div class="progress-container" style="margin-top: 1rem;">
+                  <div class="progress-label" style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:0.3rem;">
+                    <span>Maîtrise globale</span>
+                    <span>80%</span>
+                  </div>
+                  <div class="progress-bar" style="background: var(--bg2); height: 8px; border-radius: 4px; overflow: hidden;">
+                    <div class="progress-fill" style="width: 80%; background: var(--accent); height: 100%; transition: width 0.6s ease;"></div>
+                  </div>
                 </div>
-                <div class="ac-progress-level">[ réussite estimée ]</div>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-            </div>
-            <div class="ac-progress">
-              <div class="ac-progress-header">
-                <div>
-                  <div class="ac-progress-code">SAÉ 2.04</div>
-                  <div class="ac-progress-text">Projet intégratif</div>
-                </div>
-                <div class="ac-progress-level">[ réussite estimée ]</div>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-            </div>
-            <div class="ac-progress">
-              <div class="ac-progress-header">
-                <div>
-                  <div class="ac-progress-code">SAÉ 2.05</div>
-                  <div class="ac-progress-text">Portfolio</div>
-                </div>
-                <div class="ac-progress-level">[ réussite estimée ]</div>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-            </div>
-          </div>
-          <div class="bilan-synthesis">
-            <h3>Synthèse de l'UE2.3</h3>
-            <div class="synthesis-grid">
-              <div>
-                <div class="synthesis-col-title">Acquis & points forts</div>
-                <div class="synthesis-item">???</div>
-              </div>
-              <div>
-                <div class="synthesis-col-title">Axes de progrès</div>
-                <div class="synthesis-item">???</div>
               </div>
             </div>
           </div>
@@ -341,11 +196,11 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      // Animation initiale lors du chargement de la page pour le premier panneau actif (S1 - UE1.1)
+      // Animation initiale lors du chargement de la page pour le premier panneau actif
       document.querySelectorAll('#bilan-0 .progress-fill').forEach(bar => {
         const w = bar.style.width;
         bar.style.width = '0';
-        setTimeout(() => { bar.style.width = w; }, 300);
+        setTimeout(() => { bar.style.width = w; }, 100);
       });
     });
   </script>
