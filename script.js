@@ -54,8 +54,8 @@ const saeData = {
     contexte: "Cette SAÉ ciblait l'étude pratique et expérimentale des supports physiques de transmission de première année : les câbles en cuivre (coaxiaux et paires torsadées) et la fibre optique. Le but était de comprendre et reproduire manuellement les analyses effectuées de manière automatique par un certificateur industriel.",
     taches: "Pour le pôle cuivre, j'ai manipulé des câbles pour relever le temps de propagation d'une impulsion à l'aide d'un GBF et d'un oscilloscope afin de calculer la NVP et localiser la distance à un défaut (Distance to Fault). Pour le pôle optique, j'ai réalisé le câblage complet d'une liaison de type FTTH et procédé à une qualification de son atténuation globale par photométrie.",
     traces: [
-      { icon: '📄', name: 'Rapport de mesure Cuivre', desc: 'Rapport technique A4 détaillant le calcul théorique de la NVP et l\'analyse DTF.' },
-      { icon: '📄', name: 'Rapport de mesure Fibre Optique', desc: 'Bilan de puissance et relevé d\'affaiblissement de la liaison FTTH.' }
+      { icon: '📄', name: 'Rapport de mesure Cuivre', desc: 'Rapport technique A4 détaillant le calcul théorique de la NVP et l\'analyse DTF (câble coaxial RG58 & câble Ethernet).', link: 'Compte_rendu_cuivre.pdf' },
+      { icon: '📄', name: 'Rapport de mesure Fibre Optique', desc: 'Bilan de puissance et relevé d\'affaiblissement de la liaison FTTH — atténuation mesurée : 4,92 dB à 1550 nm.', link: 'compte_rendu_fibre_optique.pdf' }
     ],
     autoeval: "Faire face aux contraintes réelles du signal physique m'a permis de lier les théories mathématiques à la réalité du terrain. Travailler avec minutie sur la fibre optique m'a sensibilisé aux problématiques concrètes d'atténuation que l'on rencontre en raccordement client."
   },
@@ -71,6 +71,9 @@ const saeData = {
     comps: ['UE1.3 — Créer des outils et des applications informatiques pour les R&T'],
     contexte: "La consigne imposait la création d'un site web multipages complet, responsive et accessible, déployé pour présenter notre profil professionnel et nos travaux de manière propre.",
     taches: "Développement intégral de la structure en HTML5 et de l'habillage en CSS3 en exploitant les grilles CSS Grid et Flexbox pour s'assurer de l'adaptation mobile. Validation du code aux normes W3C et WCAG 2.0 AA, archivage régulier par commits porteurs de sens sur Git et hébergement via GitHub Pages.",
+    traces: [
+      { icon: '🌐', name: 'Site web déployé — Se présenter sur Internet', desc: 'Site multipages responsive déployé via GitHub Pages, validé W3C et WCAG 2.0 AA.', link: 'https://azerazer02.github.io/site-sa--14-v2/' }
+    ],
     autoeval: "Bien que mon profil s'oriente vers les infrastructures système et réseaux, maîtriser la publication web et l'outil de gestion de version Git m'apporte une double compétence indispensable pour collaborer efficacement au sein d'une équipe technique."
   },
   sae105: {
@@ -196,6 +199,7 @@ function loadSAEDetail() {
         <div class="trace-info">
           <div class="trace-name">${t.name}</div>
           <div class="trace-desc">${t.desc}</div>
+          ${t.link ? `<a href="${t.link}" target="_blank" rel="noopener" class="trace-link">Ouvrir le document →</a>` : ''}
         </div>
       </div>
     `).join('');
