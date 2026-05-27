@@ -229,6 +229,21 @@ nav {
   display: flex; align-items: flex-start; gap: 0.8rem;
   background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 0.9rem 1rem;
 }
+.trace-item-link {
+  text-decoration: none; color: inherit;
+  transition: border-color var(--trans), transform var(--trans), box-shadow var(--trans);
+}
+.trace-item-link:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+.trace-cta {
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--accent); margin-top: 0.4rem;
+  opacity: 0.85; transition: opacity var(--trans);
+}
+.trace-item-link:hover .trace-cta { opacity: 1; }
 .trace-icon { flex-shrink: 0; width: 32px; height: 32px; background: var(--bg2); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 0.9rem; }
 .trace-info { flex: 1; }
 .trace-name { font-size: 0.85rem; font-weight: 500; margin-bottom: 0.15rem; }
