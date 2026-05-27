@@ -9,6 +9,7 @@ const saeData = {
     code: 'SAÉ 1.01',
     title: "Se sensibiliser à l'hygiène informatique et à la cybersécurité",
     sem: 'Semestre 1', duree: '12h de projet', mode: 'Individuel et Groupe',
+    niveauDefaut: 3,
     acs: [
       "Comprendre l'architecture et les fondements des systèmes numériques",
       "Maîtriser les rôles et les principes fondamentaux des systèmes d'exploitation"
@@ -25,6 +26,7 @@ const saeData = {
     code: 'SAÉ 1.02',
     title: "S'initier aux réseaux informatiques",
     sem: 'Semestre 1', duree: '6 semaines', mode: 'Binôme',
+    niveauDefaut: 2,
     acs: [
       "Configurer les fonctions de base du réseau local",
       "Installer un poste client, expliquer la procédure mise en place"
@@ -42,6 +44,7 @@ const saeData = {
     code: 'SAÉ 1.03',
     title: "Découvrir un dispositif de transmission",
     sem: 'Semestre 1', duree: '12h de projet', mode: 'Groupe',
+    niveauDefaut: 3,
     acs: [
       "Mesurer et analyser les signaux",
       "Déployer des supports de transmission",
@@ -60,6 +63,7 @@ const saeData = {
     code: 'SAÉ 1.04',
     title: "Se présenter sur Internet",
     sem: 'Semestre 1', duree: '3 semaines', mode: 'Individuel',
+    niveauDefaut: 4,
     acs: [
       "Utiliser un système informatique et ses outils",
       "Connaître l'architecture et les technologies d'un site Web"
@@ -73,6 +77,7 @@ const saeData = {
     code: 'SAÉ 1.05',
     title: "Traiter des données",
     sem: 'Semestre 1', duree: '20h en autonomie', mode: 'Binôme',
+    niveauDefaut: 3,
     acs: [
       "Lire, exécuter, corriger et modifier un programme",
       "Traduire un algorithme, dans un langage et pour un environnement donné",
@@ -87,6 +92,55 @@ const saeData = {
     autoeval: "Manipuler des structures de données complexes (tableaux et structures imbriquées JSON/XML) a été un exercice exigeant. Surmonter les erreurs de requêtes HTTP m'a appris à analyser précisément les codes de retour serveurs (comme les erreurs 400 ou 404), une compétence clé pour le développement de scripts d'infrastructure."
   }
 };
+
+// ─── SYSTÈME DE NIVEAU ESTIMÉ ────────────────────────────────────
+const NIVEAU_LABELS = ['', 'Débutant', 'En progression', 'Confirmé', 'Expert'];
+const NIVEAU_STORAGE_KEY = 'portfolio_niveaux';
+
+function getNiveaux() {
+  try { return JSON.parse(localStorage.getItem(NIVEAU_STORAGE_KEY)) || {}; }
+  catch { return {}; }
+}
+
+function saveNiveau(id, val) {
+  const niveaux = getNiveaux();
+  niveaux[id] = val;
+  localStorage.setItem(NIVEAU_STORAGE_KEY, JSON.stringify(niveaux));
+}
+
+function renderNiveau(id, niveauDefaut) {
+  const container = document.getElementById('sae-niveau');
+  if (!container) return;
+
+  const niveaux = getNiveaux();
+  const current = niveaux[id] !== undefined ? niveaux[id] : niveauDefaut;
+
+  function build(val) {
+    container.innerHTML = '';
+    for (let i = 1; i <= 4; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i <= val ? ' filled' : ' empty');
+      dot.title = NIVEAU_LABELS[i];
+      dot.style.cursor = 'pointer';
+      dot.style.transition = 'transform 0.15s ease, background 0.2s ease';
+      dot.addEventListener('mouseenter', () => { dot.style.transform = 'scale(1.35)'; });
+      dot.addEventListener('mouseleave', () => { dot.style.transform = 'scale(1)'; });
+      dot.addEventListener('click', () => {
+        // Cliquer sur le dot déjà seul actif (niveau 1) remet à 1, sinon on change
+        const next = (val === i && i === 1) ? 1 : i;
+        saveNiveau(id, next);
+        build(next);
+        const label = document.querySelector('.niveau-label');
+        if (label) label.textContent = NIVEAU_LABELS[next];
+      });
+      container.appendChild(dot);
+    }
+    const label = document.querySelector('.niveau-label');
+    if (label) label.textContent = NIVEAU_LABELS[val];
+  }
+
+  build(current);
+}
 
 // ─── CHARGEMENT DU DÉTAIL DYNAMIQUE ──────────────────────────────
 function loadSAEDetail() {
@@ -152,6 +206,9 @@ function loadSAEDetail() {
   if (compList) {
     compList.innerHTML = d.comps.map(c => `<div class="sidebar-item">${c}</div>`).join('');
   }
+
+  // Rendu interactif du niveau estimé
+  renderNiveau(id, d.niveauDefaut || 3);
 
   // Changement du titre de l'onglet du navigateur
   document.title = d.code + " — " + d.title;
