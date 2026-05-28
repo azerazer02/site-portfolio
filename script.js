@@ -20,7 +20,11 @@ const saeData = {
     traces: [
       { icon: '🏆', name: 'Micro-certification ANSSI — SecNumAcadémie', desc: "Badge officiel obtenu après validation du parcours de formation à plus de 75 %. (Le badge ne peut malheureusement plus être récupéré, la plateforme MOOC n'étant plus accessible.)" },
     ],
-    autoeval: "Cette situation m'a permis d'acquérir de bons réflexes d'administration système sécurisée, notamment sur la gestion rigoureuse des accès privilèges et l'analyse de vulnérabilités applicatives. Le travail collaboratif et la mise en situation professionnelle du CTF ont développé ma réactivité face aux incidents d'infrastructure."
+    autoeval: "Cette situation m'a permis d'acquérir de bons réflexes d'administration système sécurisée, notamment sur la gestion rigoureuse des accès privilèges et l'analyse de vulnérabilités applicatives. Le travail collaboratif et la mise en situation professionnelle du CTF ont développé ma réactivité face aux incidents d'infrastructure.",
+    difficultes: [
+      { probleme: "Lors du durcissement SSH par clés, le risque était de se verrouiller hors du serveur Debian en désactivant trop tôt l'authentification par mot de passe.", solution: "Nous avons d'abord généré et copié la clé publique, vérifié qu'une connexion par clé fonctionnait sur une seconde session, puis seulement ensuite désactivé l'authentification par mot de passe dans sshd_config." },
+      { probleme: "Sous la pression du CTF, identifier la bonne piste parmi les services exposés faisait perdre du temps.", solution: "Nous avons adopté une démarche méthodique de cartographie (scan de ports systématique avant toute exploitation) pour prioriser les cibles plutôt que d'avancer au hasard." }
+    ]
   },
   sae102: {
     code: 'SAÉ 1.02',
@@ -38,7 +42,12 @@ const saeData = {
       { icon: '🗺️', name: 'Schéma physique et logique du réseau', desc: 'Plan d\'architecture complet représentant le câblage physique des équipements et l\'organisation logique de l\'adressage (sous-réseaux et interconnexions).', link: 'sch%C3%A9ma_logique.jpg' },
       { icon: '📋', name: 'Configuration complète des équipements', desc: 'Relevé détaillé de toutes les configurations déployées (VLAN, plan d\'adressage IP, routage) pour l\'infrastructure Fibre&Company.', link: 'SAE12_config_complete.txt' }
     ],
-    autoeval: "La formalisation de schémas techniques normalisés m'a appris l'importance de la rigueur documentaire en entreprise pour optimiser les futures interventions de maintenance ou de supervision réseau."
+    autoeval: "La formalisation de schémas techniques normalisés m'a appris l'importance de la rigueur documentaire en entreprise pour optimiser les futures interventions de maintenance ou de supervision réseau.",
+    difficultes: [
+      { probleme: "Au départ, les machines de VLAN différents ne communiquaient pas entre elles malgré la création des VLAN.", solution: "Le routage inter-VLAN n'était pas actif : il a fallu activer 'ip routing' sur le switch L3 (SWR-1) et configurer une interface virtuelle (SVI) avec passerelle pour chaque VLAN." },
+      { probleme: "L'agrégation de liens (EtherChannel) ne montait pas entre SWR-1 et les switchs d'accès.", solution: "Les modes LACP étaient incohérents de part et d'autre. Nous avons mis SWR-1 en 'active' et les switchs opposés en 'passive', et aligné l'encapsulation trunk (dot1q) ainsi que le VLAN natif (696) des deux côtés." },
+      { probleme: "Les postes clients ne récupéraient pas d'adresse via DHCP sur certains VLAN.", solution: "Nous avons vérifié les plages exclues (ip dhcp excluded-address) et confirmé via 'show ip dhcp binding' que les pools correspondaient bien au bon sous-réseau et à la bonne passerelle." }
+    ]
   },
   sae103: {
     code: 'SAÉ 1.03',
@@ -57,7 +66,12 @@ const saeData = {
       { icon: '📄', name: 'Compte rendu de mesure — Cuivre', desc: 'Rapport technique détaillant la mesure du temps de propagation à l\'oscilloscope, le calcul de la NVP et la localisation d\'un défaut (DTF) sur câble coaxial RG58 et paire torsadée Ethernet.', link: 'Compte_rendu_cuivre.pdf' },
       { icon: '📄', name: 'Compte rendu de mesure — Fibre optique', desc: 'Bilan de puissance et relevé d\'affaiblissement d\'une liaison FTTH par photométrie — atténuation globale mesurée de 4,92 dB à 1550 nm.', link: 'compte_rendu_fibre_optique.pdf' }
     ],
-    autoeval: "Faire face aux contraintes réelles du signal physique m'a permis de lier les théories mathématiques à la réalité du terrain. Travailler avec minutie sur la fibre optique m'a sensibilisé aux problématiques concrètes d'atténuation que l'on rencontre en raccordement client."
+    autoeval: "Faire face aux contraintes réelles du signal physique m'a permis de lier les théories mathématiques à la réalité du terrain. Travailler avec minutie sur la fibre optique m'a sensibilisé aux problématiques concrètes d'atténuation que l'on rencontre en raccordement client.",
+    difficultes: [
+      { probleme: "Les deux méthodes de mesure du câble coaxial donnaient des résultats différents : 3,02 m au DTF contre environ 3,56 m à l'oscilloscope.", solution: "Nous avons identifié les sources d'erreur — difficulté à placer précisément les curseurs au début de la montée du signal et longueur des câbles BNC de raccordement qui s'ajoute à la mesure — et retenu le DTF, calibré au port de sortie, comme méthode de référence." },
+      { probleme: "La NVP du câble Ethernet inconnu n'était pas connue à l'avance, faussant la mesure de longueur.", solution: "Nous avons d'abord déterminé la NVP (0,61) à l'aide d'un câble étalon selon la méthode vue en TD, avant de l'appliquer pour mesurer le câble attribué." },
+      { probleme: "Sur la paire torsadée, le signal était fortement atténué (-33,61 dB) et la trace bruitée, rendant la lecture délicate.", solution: "Nous avons relié ce comportement à l'impédance des paires torsadées non blindées et soigné le réglage de l'appareil pour isoler le pic de réflexion utile." }
+    ]
   },
   sae104: {
     code: 'SAÉ 1.04',
@@ -74,7 +88,12 @@ const saeData = {
     traces: [
       { icon: '🌐', name: 'Site web déployé — Se présenter sur Internet', desc: 'Site multipages responsive déployé via GitHub Pages, validé W3C et WCAG 2.0 AA.', link: 'https://azerazer02.github.io/site-sa--14-v2/' }
     ],
-    autoeval: "Bien que mon profil s'oriente vers les infrastructures système et réseaux, maîtriser la publication web et l'outil de gestion de version Git m'apporte une double compétence indispensable pour collaborer efficacement au sein d'une équipe technique."
+    autoeval: "Bien que mon profil s'oriente vers les infrastructures système et réseaux, maîtriser la publication web et l'outil de gestion de version Git m'apporte une double compétence indispensable pour collaborer efficacement au sein d'une équipe technique.",
+    difficultes: [
+      { probleme: "En affichage mobile, le menu de navigation disparaissait sur certaines pages, rendant le site difficile à parcourir.", solution: "J'ai ajouté un bouton « burger » et la fonction de bascule associée, en m'assurant que le script de navigation était bien chargé sur chaque page." },
+      { probleme: "Le code ne passait pas du premier coup la validation W3C et les critères d'accessibilité WCAG 2.0 AA.", solution: "J'ai corrigé itérativement les erreurs remontées par le validateur (balises, attributs alt, contrastes) jusqu'à conformité complète." },
+      { probleme: "Une fois en ligne sur GitHub Pages, certains liens vers des fichiers ne fonctionnaient pas alors qu'ils marchaient en local.", solution: "J'ai compris que GitHub Pages est sensible à la casse et aux caractères accentués ; j'ai aligné exactement les noms de fichiers et encodé les caractères spéciaux dans les liens." }
+    ]
   },
   sae105: {
     code: 'SAÉ 1.05',
@@ -94,7 +113,12 @@ const saeData = {
       { icon: '🐍', name: 'Script — Fiche descriptive d\'un nœud OSM', desc: 'Script récupérant les attributs d\'un nœud précis via l\'API REST d\'OpenStreetMap et générant automatiquement une fiche structurée en Markdown.', link: 'SAE105/fiche_osm.py' },
       { icon: '📊', name: 'Bilan généré — Infos locales Caen', desc: 'Fichier de sortie HTML produit automatiquement par le script à partir des données brutes récupérées et traitées.', link: 'SAE105/InfoLocalesCaen.html' }
     ],
-    autoeval: "Manipuler des structures de données complexes (tableaux et structures imbriquées JSON/XML) a été un exercice exigeant. Surmonter les erreurs de requêtes HTTP m'a appris à analyser précisément les codes de retour serveurs (comme les erreurs 400 ou 404), une compétence clé pour le développement de scripts d'infrastructure."
+    autoeval: "Manipuler des structures de données complexes (tableaux et structures imbriquées JSON/XML) a été un exercice exigeant. Surmonter les erreurs de requêtes HTTP m'a appris à analyser précisément les codes de retour serveurs (comme les erreurs 400 ou 404), une compétence clé pour le développement de scripts d'infrastructure.",
+    difficultes: [
+      { probleme: "Extraire une valeur précise (la population) dans la réponse JSON de l'API était source d'erreurs à cause de l'imbrication profonde des données.", solution: "Nous avons isolé le chemin exact dans la structure (elements → tags → population) et converti proprement la valeur en entier pour pouvoir l'exploiter dans les calculs." },
+      { probleme: "Certaines poubelles ne possédaient pas l'attribut 'material', ce qui faisait planter la génération du rapport.", solution: "Nous avons utilisé la méthode .get() avec une valeur par défaut (« Matière non trouvée ») pour gérer proprement les attributs manquants sans interrompre le script." },
+      { probleme: "Une ville sans donnée renvoyait une division par zéro lors du calcul du ratio habitants/poubelle.", solution: "Nous avons ajouté un test en amont : si aucune poubelle n'est trouvée, le script renvoie un message explicite au lieu de tenter le calcul." }
+    ]
   }
 };
 
@@ -205,6 +229,20 @@ function loadSAEDetail() {
         </div>
       </div>
     `).join('');
+  }
+
+  // Remplissage des Difficultés rencontrées & solutions
+  const diffList = document.getElementById('sae-difficultes');
+  const diffSection = document.getElementById('sae-difficultes-section');
+  if (diffList && d.difficultes && d.difficultes.length) {
+    diffList.innerHTML = d.difficultes.map(item => `
+      <div class="diff-item">
+        <div class="diff-probleme"><span class="diff-tag diff-tag-pb">Difficulté</span>${item.probleme}</div>
+        <div class="diff-solution"><span class="diff-tag diff-tag-sol">Solution</span>${item.solution}</div>
+      </div>
+    `).join('');
+  } else if (diffSection) {
+    diffSection.style.display = 'none';
   }
 
   // Remplissage des Compétences Associées (Sidebar)
