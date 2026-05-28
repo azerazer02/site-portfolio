@@ -35,8 +35,8 @@ const saeData = {
     contexte: "L'objectif était de concevoir, documenter et déployer l'architecture réseau fonctionnelle d'une infrastructure locale simulée, en partant du câblage physique jusqu'à l'adressage logique des hôtes.",
     taches: "Nous avons procédé à la configuration logicielle d'équipements actifs et de postes clients. Nous avons planifié nos livrables (planification et répartition via Trello) et produit des schémas d'architecture rigoureux.",
     traces: [
-      { icon: '🗺️', name: 'Schéma physique et logique', desc: 'Plans d\'architectures complets exportés aux formats Visio et image.' },
-      { icon: '📋', name: 'Livrables d\'organisation (WBS / Gantt)', desc: 'Documents de gestion de projet démontrant la bonne tenue du cahier des charges.' }
+      { icon: '🗺️', name: 'Schéma physique et logique', desc: 'Plans d\'architectures complets exportés aux formats Visio et image.', link: 'sch%C3%A9ma_logique.jpg' },
+      { icon: '📋', name: 'Configuration complète des équipements', desc: 'Relevé exhaustif des configurations (VLAN, adressage, routage) de l\'infrastructure Fibre&Company.', link: 'SAE12_config_complete.txt' }
     ],
     autoeval: "La formalisation de schémas techniques normalisés m'a appris l'importance de la rigueur documentaire en entreprise pour optimiser les futures interventions de maintenance ou de supervision réseau."
   },
@@ -90,7 +90,8 @@ const saeData = {
     contexte: "Les techniciens R&T doivent régulièrement centraliser des informations brutes (provenant d'équipements ou de serveurs) afin de les trier et automatiser leur mise en forme. L'objectif était de développer un outil capable d'interroger des services distants et de générer un bilan synthétique exploitable.",
     taches: "Conception et implémentation d'un script d'automatisation en langage Python. Nous avons configuré la bibliothèque `requests` pour effectuer des appels HTTP distants et récupérer des données géographiques brutes depuis l'API REST d'OpenStreetMap. Nous avons structuré le traitement des formats sérialisés JSON et XML, calculé des statistiques et automatisé l'export final des résultats dans un fichier structuré en Markdown.",
     traces: [
-      { icon: '🐍', name: 'Script d\'automatisation Python', desc: 'Code source complet incluant la gestion des requêtes API et le parsing de dictionnaires complexes.' },
+      { icon: '🐍', name: 'Script d\'automatisation Python', desc: 'Code source complet incluant la gestion des requêtes API Overpass et le parsing de dictionnaires complexes.', link: 'info_locales.py' },
+      { icon: '📊', name: 'Bilan généré — Infos locales Caen', desc: 'Fichier de sortie automatiquement produit par le script à partir des données OpenStreetMap.', link: 'InfoLocalesCaen.html' }
     ],
     autoeval: "Manipuler des structures de données complexes (tableaux et structures imbriquées JSON/XML) a été un exercice exigeant. Surmonter les erreurs de requêtes HTTP m'a appris à analyser précisément les codes de retour serveurs (comme les erreurs 400 ou 404), une compétence clé pour le développement de scripts d'infrastructure."
   }
