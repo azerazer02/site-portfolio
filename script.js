@@ -18,7 +18,7 @@ const saeData = {
     contexte: "Le professionnel R&T est l'un des premiers interlocuteurs des nouveaux collaborateurs arrivant au sein d'une entreprise concernant les risques de leur environnement numérique. L'objectif de cette SAÉ était d'appréhender les menaces communes et d'apprendre à vulgariser les remédiations clés auprès d'utilisateurs non spécialistes.",
     taches: "J'ai suivi une auto-formation individuelle sur la plateforme de l'ANSSI pour préparer la certification SecNumAcadémie. En parallèle, nous avons mené un travail d'expérimentation technique en groupe sur un lot dédié (mécanismes de force brute de mots de passe sur Debian, durcissement d'accès SSH par clés privées/publiques, ou cartographie et scan de ports réseau). Le projet s'est conclu par une restitution orale sur diaporamas et un TP technique d'application sous forme de Capture The Flag (CTF).",
     traces: [
-      { icon: '🏆', name: 'Micro-certification ANSSI', desc: "Badge officiel obtenu suite à la validation à plus de 75% du parcours de formation SecNumAcadémie.(je ne peux pas le recuerer car le site mooc n'est plus accesible)." },
+      { icon: '🏆', name: 'Micro-certification ANSSI — SecNumAcadémie', desc: "Badge officiel obtenu après validation du parcours de formation à plus de 75 %. (Le badge ne peut malheureusement plus être récupéré, la plateforme MOOC n'étant plus accessible.)" },
     ],
     autoeval: "Cette situation m'a permis d'acquérir de bons réflexes d'administration système sécurisée, notamment sur la gestion rigoureuse des accès privilèges et l'analyse de vulnérabilités applicatives. Le travail collaboratif et la mise en situation professionnelle du CTF ont développé ma réactivité face aux incidents d'infrastructure."
   },
@@ -35,8 +35,8 @@ const saeData = {
     contexte: "L'objectif était de concevoir, documenter et déployer l'architecture réseau fonctionnelle d'une infrastructure locale simulée, en partant du câblage physique jusqu'à l'adressage logique des hôtes.",
     taches: "Nous avons procédé à la configuration logicielle d'équipements actifs et de postes clients. Nous avons planifié nos livrables (planification et répartition via Trello) et produit des schémas d'architecture rigoureux.",
     traces: [
-      { icon: '🗺️', name: 'Schéma physique et logique', desc: 'Plans d\'architectures complets exportés aux formats Visio et image.', link: 'sch%C3%A9ma_logique.jpg' },
-      { icon: '📋', name: 'Configuration complète des équipements', desc: 'Relevé exhaustif des configurations (VLAN, adressage, routage) de l\'infrastructure Fibre&Company.', link: 'SAE12_config_complete.txt' }
+      { icon: '🗺️', name: 'Schéma physique et logique du réseau', desc: 'Plan d\'architecture complet représentant le câblage physique des équipements et l\'organisation logique de l\'adressage (sous-réseaux et interconnexions).', link: 'sch%C3%A9ma_logique.jpg' },
+      { icon: '📋', name: 'Configuration complète des équipements', desc: 'Relevé détaillé de toutes les configurations déployées (VLAN, plan d\'adressage IP, routage) pour l\'infrastructure Fibre&Company.', link: 'SAE12_config_complete.txt' }
     ],
     autoeval: "La formalisation de schémas techniques normalisés m'a appris l'importance de la rigueur documentaire en entreprise pour optimiser les futures interventions de maintenance ou de supervision réseau."
   },
@@ -54,8 +54,8 @@ const saeData = {
     contexte: "Cette SAÉ ciblait l'étude pratique et expérimentale des supports physiques de transmission de première année : les câbles en cuivre (coaxiaux et paires torsadées) et la fibre optique. Le but était de comprendre et reproduire manuellement les analyses effectuées de manière automatique par un certificateur industriel.",
     taches: "Pour le pôle cuivre, j'ai manipulé des câbles pour relever le temps de propagation d'une impulsion à l'aide d'un GBF et d'un oscilloscope afin de calculer la NVP et localiser la distance à un défaut (Distance to Fault). Pour le pôle optique, j'ai réalisé le câblage complet d'une liaison de type FTTH et procédé à une qualification de son atténuation globale par photométrie.",
     traces: [
-      { icon: '📄', name: 'Rapport de mesure Cuivre', desc: 'Rapport technique A4 détaillant le calcul théorique de la NVP et l\'analyse DTF (câble coaxial RG58 & câble Ethernet).', link: 'Compte_rendu_cuivre.pdf' },
-      { icon: '📄', name: 'Rapport de mesure Fibre Optique', desc: 'Bilan de puissance et relevé d\'affaiblissement de la liaison FTTH — atténuation mesurée : 4,92 dB à 1550 nm.', link: 'compte_rendu_fibre_optique.pdf' }
+      { icon: '📄', name: 'Compte rendu de mesure — Cuivre', desc: 'Rapport technique détaillant la mesure du temps de propagation à l\'oscilloscope, le calcul de la NVP et la localisation d\'un défaut (DTF) sur câble coaxial RG58 et paire torsadée Ethernet.', link: 'Compte_rendu_cuivre.pdf' },
+      { icon: '📄', name: 'Compte rendu de mesure — Fibre optique', desc: 'Bilan de puissance et relevé d\'affaiblissement d\'une liaison FTTH par photométrie — atténuation globale mesurée de 4,92 dB à 1550 nm.', link: 'compte_rendu_fibre_optique.pdf' }
     ],
     autoeval: "Faire face aux contraintes réelles du signal physique m'a permis de lier les théories mathématiques à la réalité du terrain. Travailler avec minutie sur la fibre optique m'a sensibilisé aux problématiques concrètes d'atténuation que l'on rencontre en raccordement client."
   },
@@ -90,8 +90,9 @@ const saeData = {
     contexte: "Les techniciens R&T doivent régulièrement centraliser des informations brutes (provenant d'équipements ou de serveurs) afin de les trier et automatiser leur mise en forme. L'objectif était de développer un outil capable d'interroger des services distants et de générer un bilan synthétique exploitable.",
     taches: "Conception et implémentation d'un script d'automatisation en langage Python. Nous avons configuré la bibliothèque `requests` pour effectuer des appels HTTP distants et récupérer des données géographiques brutes depuis l'API REST d'OpenStreetMap. Nous avons structuré le traitement des formats sérialisés JSON et XML, calculé des statistiques et automatisé l'export final des résultats dans un fichier structuré en Markdown.",
     traces: [
-      { icon: '🐍', name: 'Script d\'automatisation Python', desc: 'Code source complet incluant la gestion des requêtes API Overpass et le parsing de dictionnaires complexes.', link: 'info_locales.py' },
-      { icon: '📊', name: 'Bilan généré — Infos locales Caen', desc: 'Fichier de sortie automatiquement produit par le script à partir des données OpenStreetMap.', link: 'InfoLocalesCaen.html' }
+      { icon: '🐍', name: 'Script principal — Requêtes Overpass', desc: 'Code source Python interrogeant l\'API Overpass d\'OpenStreetMap pour collecter et compter des données géographiques (équipements urbains de la ville de Caen).', link: 'info_locales.py' },
+      { icon: '🐍', name: 'Script — Fiche descriptive d\'un nœud OSM', desc: 'Script récupérant les attributs d\'un nœud précis via l\'API REST d\'OpenStreetMap et générant automatiquement une fiche structurée en Markdown.', link: 'fiche_osm.py' },
+      { icon: '📊', name: 'Bilan généré — Infos locales Caen', desc: 'Fichier de sortie HTML produit automatiquement par le script à partir des données brutes récupérées et traitées.', link: 'InfoLocalesCaen.html' }
     ],
     autoeval: "Manipuler des structures de données complexes (tableaux et structures imbriquées JSON/XML) a été un exercice exigeant. Surmonter les erreurs de requêtes HTTP m'a appris à analyser précisément les codes de retour serveurs (comme les erreurs 400 ou 404), une compétence clé pour le développement de scripts d'infrastructure."
   }
