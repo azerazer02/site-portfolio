@@ -1,0 +1,276 @@
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Switch
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+!
+no aaa new-model
+switch 1 provision ws-c3750-48ts
+system mtu routing 1500
+ip routing
+ip dhcp excluded-address 192.168.1.1
+ip dhcp excluded-address 192.168.1.65
+ip dhcp excluded-address 192.168.1.129
+ip dhcp excluded-address 192.168.1.161
+ip dhcp excluded-address 192.168.1.193
+!
+ip dhcp pool POOL_COMPTA
+   network 192.168.1.128 255.255.255.224
+   default-router 192.168.1.129
+   dns-server 1.1.1.1
+!
+ip dhcp pool POOL_TERRAIN
+   network 192.168.1.0 255.255.255.192
+   default-router 192.168.1.1
+   dns-server 1.1.1.1
+!
+ip dhcp pool POOL_ADMINISTRATIF
+   network 192.168.1.64 255.255.255.192
+   default-router 192.168.1.65
+   dns-server 1.1.1.1
+!
+ip dhcp pool POOL_SUPERVISION
+   network 192.168.1.160 255.255.255.224
+   default-router 192.168.1.161
+   dns-server 1.1.1.1
+!
+ip dhcp pool POOL_ADMIN_INFO
+   network 192.168.1.192 255.255.255.224
+   default-router 192.168.1.193
+   dns-server 1.1.1.1
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-3940057728
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3940057728
+ revocation-check none
+ rsakeypair TP-self-signed-3940057728
+!
+!
+crypto pki certificate chain TP-self-signed-3940057728
+ certificate self-signed 01
+  3082023F 308201A8 A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 33393430 30353737 3238301E 170D3933 30333031 30303031
+  33395A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 39343030
+  35373732 3830819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  8100D9DB B5E641EF 84DDBE1F 69B92AF6 A8FEEF51 6192AC7C 83933831 DCD17911
+  3DC62E0B 1E772FAF C36D2F7D CE03F9AD AD640AD6 E99520A8 F62387D5 F8F0E964
+  2E522709 13522996 BF7D4273 61A302F4 58066E6C 4D1A790F 419C23B9 689C7C81
+  034A9EB4 0B929BF8 0E41871E 84E7216B 57702C21 CCF76115 A651235F D56B1F6E
+  81090203 010001A3 67306530 0F060355 1D130101 FF040530 030101FF 30120603
+  551D1104 0B300982 07537769 7463682E 301F0603 551D2304 18301680 1418A444
+  B5092B90 3A67D651 4F1209E7 939B367F 5B301D06 03551D0E 04160414 18A444B5
+  092B903A 67D6514F 1209E793 9B367F5B 300D0609 2A864886 F70D0101 04050003
+  8181005B 28865642 8204D10D A542E385 8A53E397 4E1DB103 F471CAFE 101E510A
+  3C9CCD66 96339F1F 842DE4E4 F26E5571 577192AF F39E4CA4 124A0647 1F5E71BC
+  52A64DC2 D1AAC9FE 10809CE5 70757029 B936BB14 613EF906 EFACB923 8B71F8A0
+  9467BC88 3B9DD57F 3DBE738D FC64D1D0 5D3CC819 DB899D27 809E2EF3 41195E6D 9A6A02
+  quit
+!
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+spanning-tree vlan 10,20,30,40,50,60 priority 24576
+!
+vlan internal allocation policy ascending
+!
+!
+!
+!
+interface Port-channel1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface Port-channel2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet1/0/1
+ description Liaison vers Routeur 2911
+ no switchport
+ ip address 10.0.0.2 255.255.255.254
+ ip ospf network point-to-point
+!
+interface FastEthernet1/0/2
+ description Connexion vers Serveur Proxmox
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet1/0/3
+!
+interface FastEthernet1/0/4
+!
+interface FastEthernet1/0/5
+!
+interface FastEthernet1/0/6
+!
+interface FastEthernet1/0/7
+!
+interface FastEthernet1/0/8
+!
+interface FastEthernet1/0/9
+!
+interface FastEthernet1/0/10
+!
+interface FastEthernet1/0/11
+!
+interface FastEthernet1/0/12
+!
+interface FastEthernet1/0/13
+!
+interface FastEthernet1/0/14
+!
+interface FastEthernet1/0/15
+!
+interface FastEthernet1/0/16
+!
+interface FastEthernet1/0/17
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet1/0/18
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet1/0/19
+!
+interface FastEthernet1/0/20
+!
+interface FastEthernet1/0/21
+!
+interface FastEthernet1/0/22
+!
+interface FastEthernet1/0/23
+!
+interface FastEthernet1/0/24
+!
+interface FastEthernet1/0/25
+!
+interface FastEthernet1/0/26
+!
+interface FastEthernet1/0/27
+!
+interface FastEthernet1/0/28
+!
+interface FastEthernet1/0/29
+!
+interface FastEthernet1/0/30
+!
+interface FastEthernet1/0/31
+!
+interface FastEthernet1/0/32
+!
+interface FastEthernet1/0/33
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 2 mode active
+!
+interface FastEthernet1/0/34
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 2 mode active
+!
+interface FastEthernet1/0/35
+!
+interface FastEthernet1/0/36
+!
+interface FastEthernet1/0/37
+!
+interface FastEthernet1/0/38
+!
+interface FastEthernet1/0/39
+!
+interface FastEthernet1/0/40
+!
+interface FastEthernet1/0/41
+!
+interface FastEthernet1/0/42
+!
+interface FastEthernet1/0/43
+!
+interface FastEthernet1/0/44
+!
+interface FastEthernet1/0/45
+!
+interface FastEthernet1/0/46
+!
+interface FastEthernet1/0/47
+!
+interface FastEthernet1/0/48
+!
+interface GigabitEthernet1/0/1
+!
+interface GigabitEthernet1/0/2
+ description Connexion vers Serveur Proxmox
+ switchport access vlan 10
+ switchport mode access
+!
+interface GigabitEthernet1/0/3
+!
+interface GigabitEthernet1/0/4
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan10
+ ip address 192.168.1.225 255.255.255.240
+!
+interface Vlan20
+ ip address 192.168.1.129 255.255.255.224
+ ip access-group FILTRAGE_INTER_VLAN in
+!
+interface Vlan30
+ ip address 192.168.1.1 255.255.255.192
+ ip access-group FILTRAGE_INTER_VLAN in
+!
+interface Vlan40
+ ip address 192.168.1.65 255.255.255.192
+ ip access-group FILTRAGE_INTER_VLAN in
+!
+interface Vlan50
+ ip address 192.168.1.161 255.255.255.224
+ ip access-group FILTRAGE_INTER_VLAN in
+!
+interface Vlan60
+ ip address 192.168.1.193 255.255.255.224
+ ip access-group FILTRAGE_INTER_VLAN in
+!
+router ospf 1
+ log-adjacency-changes
+ auto-cost reference-bandwidth 1000
+ network 10.0.0.2 0.0.0.1 area 0
+!
+ip classless
+ip http server
+ip http secure-server
+!
+!
+ip access-list extended FILTRAGE_INTER_VLAN
+ permit ip any 192.168.1.224 0.0.0.15
+!
+!
+!
+!
+line con 0
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+end

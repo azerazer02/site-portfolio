@@ -1,0 +1,54 @@
+=================================== ZONE OPÉRATEUR ===================================
+                                    [ Internet ]
+                                         |
+                                  +--------------+
+                                  |   Box ADSL   | 
+                                  +--------------+
+                                         |
+                                  +--------------+
+                                  | Switch Interco| 
+                                  +--------------+
+                                         |
+============================== ZONE GROUPE ÉTUDIANT ==================================
+                                         | (Liaison WAN obtenue par DHCP) 
+                                         v 
+                               +------------------+
+                               | Cisco 2911 R2    | 
+                               +------------------+
+                                         | [Port: Gi0/1] IP: 10.0.0.0/31
+                                         | 
+                                         | Lien Inter-Routeur (/31) 
+                                         |
+                                         | [Port: Gi0/1] IP: 10.0.0.1/31
+                               +------------------+
+                               | Cisco 2911 R1| 
+                               +------------------+
+                                         | [Port: Gi0/2] IP: 10.0.0.3/31
+                                         |
+                                         | Liaison Zone OSPF Backbone (Aire 0) 
+                                         | Lien en /31 
+                                         |
+                                         v [Port: FastEthernet1/0/1] IP: 10.0.0.2/31 
+     ============================================================================
+    ||                            CISCO 3750 (SWR1)                             || 
+    ||          (Cœur de réseau L3 - Spanning-Tree Root Bridge - RSTP)          || 
+     ============================================================================
+        | Fa1/0/2                  | Gi1/0/2             |                 |
+        | (VLAN 10 Access)         | (VLAN 10 Access)    |                 |
+        |               |          |                 |
+        v                          v                     | Port-Channel 1  | Port-Channel 2
+     +----------------------------------------+          | (Fa1/0/17-18)   | (Fa1/0/33-34)
+     |            SERVEUR PROXMOX             |          | Trunk LACP      | Trunk LACP
+     |       (Réseau LAN / VLAN 10 SERVEURS)  |          | 
+     |         Sous-réseau : 192.168.1.224/28 |          |                 |
+     |                                        |          v                 v
+     |  +----------------------------------+  |    +-----------+     +-----------+
+     |  | VM 1 : ADDS (Contrôleur Domaine) |  |    | SW1 (2960)|     | SW2 (2960)| 
+     |  | Nom : SAE24Gx | Domaine : Gx.test|  |    +-----------+     +-----------+
+     |  | IP : 192.168.1.226 /28           |  |      |                 |
+     |  +----------------------------------+  |      | Ports d'Accès   | Ports d'Accès
+     |  | VM 2 : NGINX (Serveur Web)       |  |      | (VLANs 20 à 60) | (VLANs 20 à 60)
+     |  | Port 80 (Vitrine) & 14000 (Int)  |  |      v                 v
+     |  | IP : 192.168.1.227 /28           |  |    [ Postes Clients / Terminaux ]
+     |  +----------------------------------+  |    (Configurés via DHCP par SWR1) 
+     +----------------------------------------+

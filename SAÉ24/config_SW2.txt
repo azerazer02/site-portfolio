@@ -1,0 +1,219 @@
+version 15.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname SW2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+switch 1 provision ws-c2960x-24ps-l
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-542311296
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-542311296
+ revocation-check none
+ rsakeypair TP-self-signed-542311296
+!
+!
+crypto pki certificate chain TP-self-signed-542311296
+ certificate self-signed 01
+  30820229 30820192 A0030201 02020101 300D0609 2A864886 F70D0101 05050030
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 35343233 31313239 36301E17 0D323630 36313131 31333430
+  355A170D 33303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3534 32333131
+  32393630 819F300D 06092A86 4886F70D 01010105 0003818D 00308189 02818100
+  8D6FDA24 54632B08 D3506609 95EC471F 6F05CFF3 226D45A9 EF704DE9 20322194
+  C53FD3CE E760D14D 053C42A6 25F6A06D 1C75B6E0 3A4297A7 B3349110 05DAD805
+  A94BF7F3 CBA620FE D0B50190 75A4C352 0081DAFC D65C9D14 524EF790 C3101B20
+  401F3A02 71BBDA50 F32AA129 CC8D657A 6A8026F3 BED17498 90030E05 C4608159
+  02030100 01A35330 51300F06 03551D13 0101FF04 05300301 01FF301F 0603551D
+  23041830 168014A2 BEC95205 E497836F 23B68F56 3AE0A231 5EC71830 1D060355
+  1D0E0416 0414A2BE C95205E4 97836F23 B68F563A E0A2315E C718300D 06092A86
+  4886F70D 01010505 00038181 002471A4 25F65D5B F2345D75 3D1B92F0 DA16C1BB
+  F3A9A58C 7014EF8E 757418D1 93F72FB9 BCAD9966 796404C0 5409F5EA 2D105D56
+  05E52F15 29EB7922 EE653BC3 DF9764D9 D848D0F9 93FFFA83 B80B7AAF 5EB9BE6F
+  688941AA 29E65C5C 15A2013C 8AC35166 2B660F36 ADC4FE0F 8DE217BE 1F18C759
+  F2FA1258 E88C989F FAA954A1 AD
+        quit
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Port-channel1
+ switchport mode trunk
+!
+interface Port-channel2
+ switchport mode trunk
+!
+interface FastEthernet0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet1/0/1
+ switchport mode trunk
+ channel-group 2 mode active
+!
+interface GigabitEthernet1/0/2
+ switchport mode trunk
+ channel-group 2 mode active
+!
+interface GigabitEthernet1/0/3
+ description Acces-Administratif
+ switchport access vlan 40
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface GigabitEthernet1/0/4
+ description Acces-Administratif
+ switchport access vlan 40
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface GigabitEthernet1/0/5
+ description Acces-Administratif
+ switchport access vlan 40
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface GigabitEthernet1/0/6
+ description Acces-Administratif
+ switchport access vlan 40
+ switchport mode access
+!
+interface GigabitEthernet1/0/7
+ switchport access vlan 40
+ switchport mode access
+!
+interface GigabitEthernet1/0/8
+ switchport access vlan 40
+ switchport mode access
+!
+interface GigabitEthernet1/0/9
+ switchport access vlan 40
+ switchport mode access
+!
+interface GigabitEthernet1/0/10
+ description Acct mode access
+ switchport access vlan 40
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface GigabitEthernet1/0/11
+ switchport access vlan 40
+ switchport mode access
+!
+interface GigabitEthernet1/0/12
+ switchport access vlan 40
+ switchport mode access
+!
+interface GigabitEthernet1/0/13
+ switchport access vlan 50
+ switchport mode access
+!
+interface GigabitEthernet1/0/14
+ switchport access vlan 50
+ switchport mode access
+!
+interface GigabitEthernet1/0/15
+ switchport access vlan 50
+ switchport mode access
+!
+interface GigabitEthernet1/0/16
+ switchport access vlan 50
+ switchport mode access
+!
+interface GigabitEthernet1/0/17
+ switchport access vlan 50
+ switchport mode access
+!
+interface GigabitEthernet1/0/18
+ switchport access vlan 60
+ switchport mode access
+!
+interface GigabitEthernet1/0/19
+ switchport access vlan 60
+ switchport mode access
+!
+interface GigabitEthernet1/0/20
+ switchport access vlan 60
+ switchport mode access
+!
+interface GigabitEthernet1/0/21
+ switchport access vlan 60
+ switchport mode access
+!
+interface GigabitEthernet1/0/22
+ description Acces-Admin_Info
+ switchport access vlan 60
+ switchport mode access
+!
+interface GigabitEthernet1/0/23
+ switchport access vlan 60
+ switchport mode access
+!
+interface GigabitEthernet1/0/24
+ switchport access vlan 60
+ switchport mode access
+!
+interface GigabitEthernet1/0/25
+!
+interface GigabitEthernet1/0/26
+!
+interface GigabitEthernet1/0/27
+!
+interface GigabitEthernet1/0/28
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+!
+ip http server
+ip http secure-server
+!
+!
+!
+!
+line con 0
+line vty 0 4
+ login
+ transport input ssh
+line vty 5 15
+ login
+ transport input ssh
+!
+!
+end
